@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var num = 1;
+        function gallery(direct) {
+            if (direct) {
+                if (num == 10) {
+                    alert("last images");
+                    return
+                };
+                num++;
+            } else {
+                if (num == 1) {
+                    alert("first images");
+                    return;
+                }
+                num--;
+            }
+            var imgTag = document.getElementById("photo");
+            imgTag.setAttribute("src", "../images/img" + num + ".jpg");
+        }
+    </script>
+    <div id="galleryZone">
+        <p><img src="../images/img1.jpg" id="photo" width="80%" height="70%" alt=""></p>
+        <p>
+            <button onclick="gallery(0)">Prev</button>
+            <button onclick="gallery(1)">Next</button>
+        </p>
+    </div>
+</body>
+
+</html>
