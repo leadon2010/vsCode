@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function CheckWeight(name, height, weight) {
+            this.userName = name;
+            this.userHeight = height;
+            this.userWeight = weight;
+            this.minWeight;
+            this.maxWeight;
+        }
+        CheckWeight.prototype.getInfo = function () {
+            var str = "";
+            str += "Name: " + this.userName + ", ";
+            str += "Height: " + this.userHeight + ", ";
+            str += "Weight: " + this.userWeight + "<br>";
+            return str;
+        }
+        CheckWeight.prototype.getResult = function () {
+            this.minWeight = (this.userHeight - 100) * 0.9 - 5;
+            this.maxWeight = (this.userHeight - 100) * 0.9 + 5;
+            if (this.userWeight >= this.minWeight && this.userWeight <= this.maxWeight) {
+                return "정상 몸무게입니다.";
+            } else if (this.userWeight < this.minWeight) {
+                return "미달입니다.";
+            } else {
+                return "초과입니다.";
+            }
+        }
+        var jang = new CheckWeight("JJang", 168, 62);
+        var park = new CheckWeight("PPark", 180, 88);
+        console.log(jang);
+        console.log(park);
+
+        document.write(jang.getInfo() + ", " + jang.getResult() + "<br>");
+        document.write(park.getInfo() + ", " + park.getResult() + "<br>");
+
+        document.write(jang.getResult === park.getResult);
+    </script>
+</body>
+
+</html>
