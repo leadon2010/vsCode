@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        var style1 = { "background-color": "#0ff", "border": "2px solid #f00" }
+        var style2 = { "background-color": "#ff0", "border": "2px dashed #f00" }
+        $("li:lt(1)").css(style1);
+        $("li:eq(2)").css(style2);
+        $("li:gt(3)").css(style1);
+    });
+    </script>
+</head>
+
+<body>
+    <h1>탐색선택자</h1>
+    <ul id="menu">
+        <li>내용1</li>
+        <li>내용2</li>
+        <li>내용3</li>
+        <li>내용4</li>
+        <li>내용5</li>
+        <li>내용6</li>
+    </ul>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        var style1 = { "background-color": "#0ff", "border": "2px solid #f00" }
+        var style2 = { "background-color": "#ff0", "border": "2px dashed #f00" }
+        $(".txt1").parents().css(style1);
+        $(".txt2").parents("div").css(style2);
+    });
+    </script>
+</head>
+
+<body class="bdy">
+    <h1 class="title">선택자</h1>
+    <section>
+        <div>
+            <p class="txt1">내용0</p>
+        </div>
+    </section>
+    <section>
+        <div>
+            <p class="txt2">내용1</p>
+        </div>
+    </section>
+</body>
+
+</html>
