@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        var arr1 = [{ "area": "서울", "name": "무대리" }, { "area": "부산", "name": "홍과장" }, { "area": "대전", "name": "박사장" }, { "area": "서울", "name": "빅마마" }]
+
+        var arr2 = $.map(arr1, function(o, i) {
+            //console.log(o, i);
+            if (o.area == "서울") {
+                return o;
+            }
+        });
+        console.log(arr2);
+
+        var arr3 = $.grep(arr1, function(o, i) {
+            //console.log(o, i);
+            if (o.area == "서울") {
+                return true;
+            } else {
+                return false;
+            }
+        });
+        console.log(arr3);
+
+    });
+    </script>
+</head>
+
+<body>
+    <h1>탐색선택자</h1>
+    <ul id="menu1">
+        <li>내용1-1</li>
+        <li>내용1-2</li>
+        <li>내용1-3</li>
+        <li>내용1-4</li>
+    </ul>
+    <ul id="menu2">
+        <li>내용2-1</li>
+        <li>내용2-2</li>
+        <li>내용2-3</li>
+    </ul>
+</body>
+
+</html>
