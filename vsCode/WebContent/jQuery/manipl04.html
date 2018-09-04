@@ -1,42 +1,46 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<script src="../js/jquery-3.3.1.min.js"></script>
-<script>
-var defaultValue;
-	$(document).ready(function() {
-		var result1 = $("#user_name").val();
-		console.log(result1);
-		$("#user_id").val("javascript");
-		console.log($("#user_id").val());
-		var result2 = $("#user_id").prop("defaultValue");
-		console.log(result2);
 
-		$("#btn1").click(function() {
-			defaultValue = $("#user_id").prop("defaultValue");
-			$("#user_id").val(defaultValue);
-		});
-	});
-	function clickbbb(){
-		var ddd = document.getElementById("#user_id").value;
-		document.getElementById("#user_id").innerText(ddd);
-	}
-</script>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script>
+    var defaultValue;
+    $(document).ready(function() {
+        var result1 = $("#user_name").val();
+        console.log(result1);
+        $("#user_id").val("javascript");
+        console.log($("#user_id").val());
+        var result2 = $("#user_id").prop("defaultValue");
+        console.log(result2);
+        defaultValue = $("#user_id").prop("defaultValue");
+
+        $("#btn1").click(function() {
+            defaultValue = $("#user_id").prop("defaultValue");
+            $("#user_id").val(defaultValue);
+        });
+    });
+
+    function clickbbb() {
+        document.getElementById("user_id").value = defaultValue;
+    }
+    </script>
 </head>
+
 <body>
-	<h1>객체 조작 및 생성</h1>
-	<form action="#" id="form1">
-		<p>
-			<label for="user_name">이름</label> <input type="text" name="user_name"
-				id="user_name" value="용대리">
-		</p>
-		<p>
-			<label for="user_id">이름</label> <input type="text" name="user_id"
-				id="user_id" value="yongyong">
-		</p>
-	</form>
-	<button id="btn" onclick="clickbbb()">click2</button>
+    <h1>객체 조작 및 생성</h1>
+    <form action="#" id="form1">
+        <p>
+            <label for="user_name">이름</label>
+            <input type="text" name="user_name" id="user_name" value="용대리">
+        </p>
+        <p>
+            <label for="user_id">이름</label>
+            <input type="text" name="user_id" id="user_id" value="yongyong">
+        </p>
+    </form>
+    <button id="btn" onclick="clickbbb()">click2</button>
 </body>
+
 </html>
