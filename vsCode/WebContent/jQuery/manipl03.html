@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+.aqua {
+	background-color: #0ff;
+}
+
+.red {
+	background-color: #f00;
+}
+
+.green {
+	background-color: #0f0;
+}
+
+.yellow {
+	background-color: #ff0;
+}
+</style>
+<script src="../js/jquery-3.3.1.min.js"></script>
+<script>
+	$(document).ready(function() {
+		$("#btn").click(function() {
+			$("#p1").addClass("aqua");
+			$("#p2").removeClass("red");
+			$("#p3").toggleClass("green");
+			$("#p4").toggleClass("green");
+			$("#p6").text($("#p5").hasClass("yellow"));
+		});
+
+		$("#show").contents().css("border", "1px dashed #000");
+	});
+</script>
+</head>
+<body>
+	<div id="show">
+		<p id="p1">내용1</p>
+		<p id="p2" class="red">내용2</p>
+		<p id="p3">내용3</p>
+		<p id="p4" class="green">내용4</p>
+		<p id="p5" class="yellow">내용5</p>
+		<p id="p6">내용6</p>
+	</div>
+	<button id="btn">click</button>
+</body>
+</html>

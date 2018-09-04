@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.3.1.min.js"></script>
+<script>
+	$(document).ready(function() {
+		function oldSrc() {
+			var srcVal = $("#sec1 img").attr("src");
+			console.log(srcVal);
+
+			$("#sec1 img").attr({
+				"width" : 200,
+				"src" : srcVal.replace("img1", "img2"),
+				"alt" : "new"
+			}).removeAttr("border");
+		}
+		var num = 1;
+		$("#show").html($("#sec1 img").attr("src"));
+		var iiintt = window.setInterval(myFnc, 1000);
+		function myFnc() {
+			var srcVal;
+			if (num == 10) {
+				num = 1;
+				srcVal = $("#sec1 img").attr("src");
+				$("#sec1 img").attr({
+					"width" : 50,
+					"src" : srcVal.replace("img10.jpg", "img1.jpg"),
+					"alt" : "new" + num
+				});
+			} else {
+				var m = num++, n = m + 1;
+				var imgm = "img" + m;
+				var imgn = "img" + n;
+				var imgw = m * 50;
+				srcVal = $("#sec1 img").attr("src");
+				$("#sec1 img").attr({
+					"width" : imgw,
+					"src" : srcVal.replace(imgm, imgn),
+					"alt" : "new"
+				});
+			}
+			//소스정보 보여주기.
+			$("#show").html($("#sec1 img").attr("src"));
+		}
+	});
+</script>
+</head>
+<body>
+	<h1>
+		<strong>객체의 조작 및 생성</strong>
+	</h1>
+	<section id="sec1">
+		<h2>이미지 속성</h2>
+		<p>
+			<img src="../images/img1.jpg" alt="test" border="2">
+		<div id="show"></div>
+
+
+	</section>
+</body>
+</html>
