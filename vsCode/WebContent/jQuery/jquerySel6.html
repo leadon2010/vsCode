@@ -7,14 +7,17 @@
 <script>
 	$(document).ready(
 			function() {
-				$("h1.tit").css("border", "2px solid #f00").css(
+				$("div>h1.tit").css("border", "2px solid #f00").css(
 						"background-color", "#ff0");
 			})
 </script>
 </head>
 <body>
 	<h1>제이쿼리1</h1>
-	<h1 class="tit">제이쿼리2</h1>
+	<div>
+		<h1 class="tit">제이쿼리2</h1>
+		<h1 id="titid">제이쿼리2</h1>
+	</div>
 	<h2>선택자</h2>
 	<h3>직접선택자</h3>
 	<h3>인접선택자</h3>

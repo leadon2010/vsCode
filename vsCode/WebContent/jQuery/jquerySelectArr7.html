@@ -10,15 +10,15 @@
         var obj = [{ area: "서울" }, { area: "부산" }, { area: "전주" }]
 
         $(obj).each(function(i, o) {
-            console.log(o);
+            console.log(i+":",o.area)
         });
 
         $.each($("#menu2 li"), function(i, o) {
-            console.log(o)
+            console.log(i+":",o.innerHTML)
         });
 
         $.each($("#menu2 li"), function(i) {
-            console.log($(this))
+            console.log(i+":",$(this)[0].innerHTML)
         });
     });
     </script>

@@ -7,7 +7,7 @@
     <script src="../js/jquery-3.3.1.min.js"></script>
     <script>
     $(document).ready(function() {
-        $("#wrap a[target]").css({ "color": "#f00" });
+        $("#wrap a[target=_blank]:selected").css({ "color": "#f00" });
         $("#wrap a[href^=https]").css({ "color": "#0f0" });
         $("#wrap a[href$=net]").css({ "color": "#00f" });
         $("#wrap a[href*=google]").css({ "color": "#000" });
@@ -21,10 +21,10 @@
 <body>
     <div id="wrap">
         <p>
-            <a href="http://easyspub.co.kr" target="_blank">Easyspub</a>
+            <a href="http://easyspub.co.kr" name="aaa" target="_blank">Easyspub</a>
         </p>
         <p>
-            <a href="https://naver.com">Naver</a>
+            <a href="https://naver.com" target="">Naver</a>
         </p>
         <p>
             <a href="http://google.co.kr">Google</a>
