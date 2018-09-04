@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.3.1.min.js"></script>
+<script>
+	$(document).ready(function() {
+		$(".wrap1 p:first").text("내용1");
+		$(".wrap1 p.active").removeClass("active").addClass("on");
+		$(".wrap1 p:eq(2) a").attr("href","http://www.naver.com");
+		$(".wrap1 p:eq(3) input").val("Korea");
+		
+		$(".wrap2 p:first").after("<p>After(추가1)</p>");
+		$(".wrap2 p:first").before("<p>Before(추가2)</p>");
+		$(".wrap2 p:first").before("<p>Before(추가3)</p>");
+		
+		$(".wrap3 p").unwrap().wrapInner("<strong />");
+	})
+</script>
+</head>
+
+<body>
+	<div class="wrap1">
+		<p>텍스트1</p>
+		<p class="active">내용2</p>
+		<p>
+			<a href="#">네이버</a>
+		</p>
+		<p>
+			<input type="text" value="Hello">
+		</p>
+	</div>
+	<div class="wrap2">
+		<p>내용5</p>
+		<p>내용6</p>
+	</div>
+	<div class="wrap3">
+		<p>내용7</p>
+		<p>내용8</p>
+	</div>
+</body>
+
+</html>
