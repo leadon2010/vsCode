@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery Event</title>
+<script src="../js/jquery-3.3.1.min.js"></script>
+<script>
+	$(function() {
+		$(".menuWrap1 a").on("click", function(e) {
+			e.preventDefault();
+
+			$(".menuWrap1 a").css({
+				"background-color" : "#fff"
+			})
+
+			$(this).css({
+				"background-color" : "#ff0"
+			})
+		})
+
+		$(".menuWrap2 a").on("click", function(e) {
+			e.preventDefault();
+
+			$(".menuWrap2 a").css({
+				"background-color" : "#fff"
+			})
+
+			var idx = $(".menuWrap2 a").index(this);
+
+			$(".menuWrap2 a").eq(idx).css({
+				"background-color" : "#0ff"
+			})
+
+			$(".idxNum").text(idx);
+		})
+	});
+</script>
+</head>
+<body>
+	<h2>$(this)</h2>
+	<ul class="menuWrap1">
+		<li><a href="#">메뉴1</a>
+		<li><a href="#">메뉴2</a>
+		<li><a href="#">메뉴3</a>
+	</ul>
+
+	<h2>index())</h2>
+	<ul class="menuWrap2">
+		<li><a href="#">메뉴4</a>
+		<li><a href="#">메뉴5</a>
+		<li><a href="#">메뉴6</a>
+	</ul>
+
+	<p class="idxNum"></p>
+</body>
+</html>

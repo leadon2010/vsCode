@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery Event</title>
+<script src="../js/jquery-3.3.1.min.js"></script>
+<script>
+	$(function() {
+		$(document).on("mousemove", function(e) {
+			$(".xpos").text(e.pageX);
+			$(".ypos").text(e.pageY);
+		})
+	});
+</script>
+</head>
+<body>
+	<h1>mousemove</h1>
+	<p>
+		pageX:<span class="xpos">0</span>px
+	</p>
+	<p>
+		pageY:<span class="ypos">0</span>px
+	</p>
+</body>
+</html>
