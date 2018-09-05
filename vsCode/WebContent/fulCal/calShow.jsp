@@ -16,6 +16,11 @@
 			url : "event.jsp",
 			success : function(result) {
 				var datas = JSON.parse(result);
+				for (var i = 0; i < datas.length; i++) {
+					vEvents.push("title:" + datas[i].title + ", start:"
+							+ datas[i].start + ", end:" + datas[i].end + "}");
+				}
+				console.log(vEvents);
 			}
 		})
 		$("#calendar").fullCalendar({
