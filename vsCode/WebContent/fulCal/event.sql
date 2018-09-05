@@ -37,3 +37,9 @@ VALUES
     ('event4'
     ,'2018-10-11'
     ,'2018-10-15');
+INSERT INTO calevents
+VALUES
+    ('event5'
+    ,'2018-11-17'
+    ,'2018-11-25');
+    
