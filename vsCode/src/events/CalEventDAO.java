@@ -24,10 +24,17 @@ public class CalEventDAO {
 				evnt.setTitle(rs.getString("title"));
 				evnt.setStartDate(rs.getString("start_date"));
 				evnt.setEndDate(rs.getString("end_date"));
+				list.add(evnt);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		return list;
 

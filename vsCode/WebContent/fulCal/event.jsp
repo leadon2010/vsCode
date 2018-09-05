@@ -4,9 +4,11 @@
 <%@page import="events.CalEventDAO"%>
 <%@page import="events.CalEvents"%>
 <%@page import="java.util.List"%>
-<!DOCTYPE html>
 <%
 	CalEventDAO dao = new CalEventDAO();
 	List<CalEvents> list = dao.getEvents();
+	for (CalEvents ev : list) {
+		System.out.println(ev.getTitle());
+	}
 	out.print(JSONArray.fromObject(list).toString());
 %>
