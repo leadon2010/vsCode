@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Event</title>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script>
+    $(function() {
+        $(".btnWrap").delegate(".btn1.on", "mouseover focus", function() {
+            alert("hello");
+        })
+        $(".btn1").addClass("on");
+        $(document).one("mouseover focus", ".btn2.on", function() {
+            alert("welcome");
+        })
+        $(".btn2").addClass("on");
+    });
+    </script>
+</head>
+
+<body>
+    <div id="wrap">
+        <p class="btnWrap">
+            <button class="btn1">버튼1</button>
+        </p>
+        <p>
+            <button class="btn2">버튼2</button>
+        </p>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Event</title>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script>
+    $(function() {
+        $(".btn1").on("mouseover", function() {
+            alert("hello");
+        })
+        $(document).on("mouseover", ".btn2", function() {
+
+        })
+        var btn2 = $("<p><button class=\"btn2\">버튼2</button></p>");
+        $("#wrap").append(btn2);
+
+    });
+    </script>
+</head>
+
+<body>
+    <div id="wrap">
+        <p>
+            <button class="btn1">버튼1</button>
+        </p>
+        <p>
+            <button class="del1">버튼1이벤트해제</button>
+            <button class="del2">버튼2이벤트해제</button>
+        </p>
+</body>
+
+</html>
