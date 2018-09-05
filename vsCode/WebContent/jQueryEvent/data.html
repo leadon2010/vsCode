@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="../js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		//span 엘리먼트에 data()함수로 "name"과 "address"세팅방법
+		$("span").data("name", "Nextree");
+		$("span").data("address", "가산");
+
+		//data(Key)로 저장된 data읽기
+		var name = $("span").data("name");
+		var address = $("span").data("address");
+
+		$("p").eq(0).text(name);
+		$("p").eq(1).text(address);
+	});
+</script>
+</head>
+
+<body>
+	<!-- data()가 호출되면 span엘리먼트에 "name"과 "address"가 추가됩니다.-->
+	<span>jQuery의 data()의 읽기 방법</span>
+	<p></p>
+	<p></p>
+</body>
+</html>

@@ -7,7 +7,10 @@
 <script src="../js/jquery-3.3.1.min.js"></script>
 <script>
 	$(function() {
-		 $(dfds23123)
+		$("#relSite").on("change", function() {
+			console.log($(this).val());
+			$(".txt").text($(this).val());
+		})
 	});
 </script>
 </head>
