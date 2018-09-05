@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Event</title>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script>
+    $(function() {
+        $("#user_id1,#user_pw1").on("focus", function() {
+            $(this).css({ "background-color": "pink" })
+        })
+        $("#user_id1,#user_pw1").on("blur", function() {
+            $(this).css({ "background-color": "#fff" })
+        })
+
+        $("#user_id2,#user_pw2").on("focusin", function() {
+            $(this).css({ "background-color": "pink" })
+        })
+        $("#user_id2,#user_pw2").on("focusout", function() {
+            $(this).css({ "background-color": "#fff" })
+        })
+    });
+    </script>
+</head>
+
+<body>
+    <h1>focus/blur</h1>
+    <form action="#">
+        <p>
+            <label for="user_id1">ID</label>
+            <input type="text" name="user_id1" id="user_id1">
+        </p>
+        <p>
+            <label for="user_pw1">PW</label>
+            <input type="password" name="user_pw1" id="user_pw1">
+        </p>
+    </form>
+    <h1>foscusin/focusout</h1>
+    <form action="#" id="frm2">
+        <p>
+            <label for="user_id2">ID</label>
+            <input type="text" name="user_id2" id="user_id2">
+        </p>
+        <p>
+            <label for="user_pw2">PW</label>
+            <input type="password" name="user_pw2" id="user_pw2">
+        </p>
+    </form>
+</body>
+
+</html>
