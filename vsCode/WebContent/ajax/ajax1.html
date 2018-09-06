@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.3.1.min.js"></script>
+<script>
+	$(function() {
+		$("#newsWrap1").load("hello.html #new1");
+		$("#newsWrap2").load("hello.html #new2");
+		$("#newsWrap3").load("employee.jsp");
+
+		$.ajax({
+			url : "employee.jsp",
+			success : function(result) {
+				var datas = JSON.parse(result);
+				var tag = "<ul />";
+				$.map(datas, function(r) {
+					tag += "<li>" + r.lastName + "," + r.email + ","
+							+ r.hireDate
+					"</li>";
+				});
+				//$("#newsWrap2").html(tag);
+				$("#newsWrap3").html(tag);
+			},
+		})// endof ajax
+
+		$("#btn1").on("click", function() {
+			var todate = new Date();
+			console.log(todate.toString)
+			/* $.ajax({
+				url : "../ControlTest",
+				data : {
+					action : 'insertEmp',
+					lastName : 'ajax1',
+					email : 'ajax3',
+					hireDate : '2018-09-10',
+					jobId : 'IT_PROG'
+				},
+				success : function(result) {
+					console.log(result);
+				},
+			}) */
+		})// endof btn1
+	})
+</script>
+</head>
+<body>
+	<button id="btn1">Try</button>
+	<h1>LOAD 1</h1>
+	<div id="newsWrap1"></div>
+	<h1>LOAD 2</h1>
+	<div id="newsWrap2"></div>
+	<h1>LOAD 3</h1>
+	<div id="newsWrap3"></div>
+</body>
+</html>
