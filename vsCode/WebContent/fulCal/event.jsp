@@ -6,6 +6,12 @@
 <%@page import="java.util.List"%>
 <%
 	CalEventDAO dao = new CalEventDAO();
-	List<CalEvents> list = dao.getEvents();
+	String startDate = request.getParameter("startD");
+	String endDate = request.getParameter("endD");
+	List<CalEvents> list = dao.getEvents(startDate, endDate);
+	for (CalEvents evnt : list) {
+		System.out.println(evnt.getTitle());
+	}
+	System.out.println("=====end of =====");
 	out.print(JSONArray.fromObject(list).toString());
 %>

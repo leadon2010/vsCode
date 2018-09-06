@@ -15,9 +15,13 @@
 		var vEvents = [];
 		$("#calendar").fullCalendar({
 			defaultView : 'month',
+			height : 700,
+			dayClick : function() {
+				//alert("hhhh")
+			},
 			events : function(start, end, timezone, callback) {
 				$.ajax({
-					url : 'event.jsp',
+					url : 'event.jsp?startD='+start.format()+'&endD='+end.format(),
 					type : 'POST',
 					dataType : 'json',
 					data : {
@@ -25,7 +29,7 @@
 						end : end.format()
 					},
 					success : function(result) {
-						console.log(result);
+						console.log(start.format()+":"+end.format());
 						var events = [];
 						if (result) {
 							$.map(result, function(r) {
@@ -40,8 +44,8 @@
 					}
 				})
 			}
-		});
-	});
+		});// fullcalendar
+	});//$(document).ready
 </script>
 </head>
 <body>

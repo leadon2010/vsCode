@@ -10,14 +10,17 @@ import java.util.List;
 import common.DbCon;
 
 public class CalEventDAO {
-	public List<CalEvents> getEvents() {
+	public List<CalEvents> getEvents(String startD, String endD) {
 		PreparedStatement pstmt = null;
 		Connection conn = DbCon.connect();
 		CalEvents evnt = null;
 		List<CalEvents> list = new ArrayList<>();
-		String sql = "select title, start_date, end_date from calevents";
+		String sql = "select title, start_date, end_date from calevents"
+				+ " where start_date >= ? and end_date < ?";
 		try {
 			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, startD);
+			pstmt.setString(2, endD);
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {
 				evnt = new CalEvents();
