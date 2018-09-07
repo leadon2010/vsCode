@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.3.1.min.js"></script>
+<script>
+	$(function() {
+		$.ajax({
+			url : "https://api.flightstats.com/flex/schedules/rest/v1/json/from/GMP/to/HND/departing/2018/09/15?appId=6d442315&appKey=301aa216b58dee04e31de0f4d5733590",
+			success : function(result) {
+				console.log(result);
+				if (result.length > 0) {
+					var tbl = $("<table />");
+					for ( var i in result) {
+						var $id = result[i].id;
+						var $first_name = result[i].first_name;
+						var $last_name = result[i].last_name;
+						var $email = result[i].email;
+						var $gender = result[i].gender;
+
+						var row = $("<tr />").append($("<td />").text($id),
+								$("<td />").text($first_name),
+								$("<td />").text($last_name),
+								$("<td />").text($email),
+								$("<td />").text($gender));
+						tbl.append(row);
+					}
+					$(".wrap").append(tbl);
+				}// endof if
+			},
+		});
+	});//end of $(function(){})
+</script>
+</head>
+<body>
+	<h1 style="align: center">show List</h1>
+	<div class="wrap"></div>
+</body>
+</html>

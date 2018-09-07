@@ -11,20 +11,11 @@
 	});
 	function myFunc(obj) {
 		console.log(obj)
-		var $html = "<ul>";
-		$(obj).each(
-				function(i, o) {
-					$html += "<li>" + o.employeeId + " " + o.firstName + " "
-							+ o.lastName + " " + o.jobId + "</li>";
-				});
-		$html += "</ul>";
-		console.log($html);
-		$("#showResult").append($html);
-	}
+	};
 </script>
 </head>
 <body>
 	<div id="showResult">fff</div>
-	<script src="jsonpCallback.jsp"></script>
+	<script src="apiData.jsp"></script>
 </body>
 </html>
