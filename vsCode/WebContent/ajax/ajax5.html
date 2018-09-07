@@ -33,10 +33,11 @@
 					console.log(o);
 					var $title = $(o).find("title").text();
 					var $link = $(o).find("link").text();
+					var $desc = $(o).find("description").text(); // 사용안함.
 					var $aTag = $("<a />").attr({
 						"href" : $link,
 						"target" : "_blank"
-					}).text($title);
+					}).html($title);
 					var $liTag = $("<li />").append($aTag);
 					$ulTag.append($liTag);
 				});
