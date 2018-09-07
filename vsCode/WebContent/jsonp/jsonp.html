@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.3.1.min.js"></script>
+<script>
+	$(function() {
+		console.log("ajax test");
+		//myFunc();
+	});
+	function myFunc(obj) {
+		console.log(obj)
+		var $html = "<ul>";
+		$(obj).each(
+				function(i, o) {
+					$html += "<li>" + o.employeeId + " " + o.firstName + " "
+							+ o.lastName + " " + o.jobId + "</li>";
+				});
+		$html += "</ul>";
+		console.log($html);
+		$("#showResult").append($html);
+	}
+</script>
+</head>
+<body>
+	<div id="showResult">fff</div>
+	<script src="jsonpCallback.jsp"></script>
+</body>
+</html>
