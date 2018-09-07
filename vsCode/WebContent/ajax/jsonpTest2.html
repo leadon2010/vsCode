@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="../js/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+
+	<h2>Click the Button.</h2>
+	<p>A script tag with a src attribute is created and placed in the
+		document.</p>
+	<p>The PHP file returns a call to a function with the JSON object
+		as a parameter.</p>
+
+	<button onclick="clickButton()">Click me!</button>
+
+	<p id="demo"></p>
+
+	<script>
+		function clickButton() {
+			var htt = "http://ivyleadon.ivyro.net/jsonData.json";
+			var s = document.createElement("script");
+			s.src = htt;
+			document.body.appendChild(s);
+		}
+
+		function myFnc(myObj) {
+			var reslt = [];
+			var rrr = "<ul>";
+			$(myObj).each(function(i, o) {
+				rrr += "<li>" + i + ":" + o.first_name + ":" + o.last_name;
+			});
+			rrr += "</ul>"
+			document.getElementById("demo").innerHTML = rrr;
+		}
+	</script>
+
+</body>
+</html>
