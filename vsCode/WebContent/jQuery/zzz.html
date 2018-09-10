@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+[class^="top"] {
+	background: yellow;
+}
+</style>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+	$(function() {
+		$("#frm [name^=top]").css({
+			"color" : "red"
+		});
+	});
+</script>
+</head>
+<body>
+	<div id="wrap">
+		<form id="frm">
+			<p>
+				<input name="top1" class="top-header" value="value1">
+			</p>
+			<p>
+				<input name="bot2" class="top-text" value="value2">
+			</p>
+			<p>
+				<input name="left" class="topcontent" value="value3">
+			</p>
+			<p>
+				<input name="top2" class="top-down" value="new">
+			</p>
+		</form>
+	</div>
+</body>
+</html>
