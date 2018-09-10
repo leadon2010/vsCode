@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Daum 지도 시작하기</title>
+</head>
+<body>
+	<div id="map" style="width: 800px; height: 600px;"></div>
+	<script type="text/javascript"
+		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=dfb2176a05179255f0fac0914ff84617"></script>
+	<script type="text/javascript"
+		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=dfb2176a05179255f0fac0914ff84617&libraries=services"></script>
+	<script>
+		var container = document.getElementById('map');
+		var options = {
+			center : new daum.maps.LatLng(33.450701, 126.570667),
+			level : 3
+		};
+
+		var map = new daum.maps.Map(container, options);
+	</script>
+	<script>
+	function searchKaKao(val){
+		location.href="http://map.daum.net/link/search/"+val;
+	}
+	</script>
+	<input type="text" id="sarch" name="sarch" value="예쁜어린이집">
+	<!-- document.getElementById("sarch").value -->
+	<button onclick="searchKaKao(document.getElementById("\"+sarch+"\").value)"">Search</button>
+</body>
+</html>
