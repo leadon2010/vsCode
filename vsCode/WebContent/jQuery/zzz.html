@@ -13,6 +13,38 @@
 		$("#frm [name^=top]").css({
 			"color" : "red"
 		});
+
+		$("#btn1").on("click", function() {
+			var $tbl = "<table id='tbl1' border='1'>";
+			var $tr = "<tr><td>age</td><td>1</td></tr><tr><td>age</td><td>2</td></tr>";
+			$tbl += $tr;
+			$("#res").html($tbl);
+		})
+		$(document).on("click", "#tbl1", function() {
+			console.log("tbl1");
+			$("#tbl1 td").css({
+				"color" : "red"
+			});
+		})
+		$("#btn3").on("click", function() {
+			$("#ret").text("ttt");
+		})
+		$("#btn4").on("click", function() {
+			$("#ret").text("ttt");
+		})
+		$(document).on("click", "#ret", function() {
+			$("#ret").text("ttt");
+		})
+		$("body").append("<div id='ret'></div>");
+
+		$("ul li").on({
+			"mouseover" : function() {
+				$(this).css("color", "red");
+			},
+			"mouseout" : function() {
+				$(this).css("color", "black");
+			}
+		})
 	});
 </script>
 </head>
@@ -33,5 +65,14 @@
 			</p>
 		</form>
 	</div>
+	<button id="btn3">Btn3</button>
+	<button id="btn4">Btn4</button>
+	<div id="res">res</div>
+	<ul>
+		<li>list1</li>
+		<li>list2</li>
+		<li>list3</li>
+	</ul>
+
 </body>
 </html>

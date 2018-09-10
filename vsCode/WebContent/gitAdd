@@ -5,19 +5,13 @@ remote.origin.url	https://github.com/JunYoungMoon/JSP.git
 2018/09/10 17:00
 
 
-1. 객체를 생성하기(3)
+1. 객체를 생성하기(20)
 - 이름, 나이, 생일의 속성을 정의하고 이름, 나이, 생일을 출력하는 스크립트를 작성하세요.
 
-2. 배열 객체 사용하기(2)
+2. 배열 객체 사용하기(20)
 - 
 
-3. 브라우저 객체 생성하기(2)
--
-
-4. 문서객체 생성하기(3)
--
-
-5. jQuery 선택자/ 탐색 선택자/ 요소변경하기(5)
+3. jQuery 선택자/ 탐색 선택자/ 요소변경하기(40)
 1) class="txt"를 제외한 <p>element의 color를 red로 변경하는 스크립트를 작성하세요.
 <body>
   <div id="wrap">
@@ -33,19 +27,31 @@ remote.origin.url	https://github.com/JunYoungMoon/JSP.git
 <body>
 	<div id="wrap">
 		<form id="frm">
-			<p>
-				<input name="top1" class="top-header" value="value1">
-			</p>
-			<p>
-				<input name="bot2" class="top-text" value="value2">
-			</p>
-			<p>
-				<input name="left" class="topcontent" value="value3">
-			</p>
-			<p>
-				<input name="top2" class="top-down" value="new">
-			</p>
+			<p> <input name="top1" class="top-header" value="value1"> </p>
+			<p> <input name="bot2" class="top-text" value="value2"> </p>
+			<p> <input name="left" class="topcontent" value="value3"> </p>
+			<p> <input name="top2" class="top-down" value="new"> </p>
 		</form>
 	</div>
 </body>
-3) 
+
+3) 각각의 리스트에 마우스를 올릴 때 red로 색상이 변하도록 스크립트를 작성하세요.
+   (마우스의 위치가 변하면 원래의 색으로 변경이 되도록 하세요.)
+<body>
+  <ul>
+    <li>list1</li>
+    <li>list2</li>
+    <li>list3</li>
+  </ul>
+</body>
+
+4. 이벤트 등록하기(20)
+1) 버튼의 색상을 변경하는 (mouseover(=red)/mouseout(=blue)) 스크립트와
+       버튼을 클릭했을 때 <div>태그안에 Hello를 출력하도록 스크립트를 작성하세요.
+<body>
+  <div id="result"></div>
+  <button id="btn">Click</button>
+</body>
+
+
+
