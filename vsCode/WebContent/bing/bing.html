@@ -228,9 +228,6 @@ h3 a:link {
 	// render functions for various types of search results
 	searchItemRenderers = {
 		images : function(item, index, count) {
-			console.log("=========================")
-			console.log(item);
-			console.log("=========================")
 			var height = 120;
 			var width = Math.max(Math.round(height * item.thumbnail.width / item.thumbnail.height), 120);
 			var html = [];
@@ -313,9 +310,7 @@ h3 a:link {
 
 		// show raw JSON and HTTP request
 		showDiv("json", preFormat(JSON.stringify(jsobj, null, 2)));
-		showDiv("http", preFormat("GET " + this.responseURL + "\n\nStatus: "
-				+ this.status + " " + this.statusText + "\n"
-				+ this.getAllResponseHeaders()));
+		showDiv("http", preFormat("GET " + this.responseURL + "\n\nStatus: " + this.status + " " + this.statusText + "\n" + this.getAllResponseHeaders()));
 
 		// if HTTP response is 200 OK, try to render search results
 		if (this.status === 200) {
@@ -380,9 +375,7 @@ h3 a:link {
 				"error");
 
 		var request = new XMLHttpRequest();
-		var queryurl = BING_ENDPOINT + "?q=" + encodeURIComponent(query) + "&"
-				+ options;
-console.log(options);
+		var queryurl = BING_ENDPOINT + "?q=" + encodeURIComponent(query) + "&" + options;
 		// open the request
 		try {
 			request.open("GET", queryurl);
@@ -484,9 +477,6 @@ console.log(options);
 		var offset = parseInt(bing.offset.value, 10);
 		var stack = JSON.parse(bing.stack.value);
 		stack.push(parseInt(bing.offset.value, 10));
-		//console.log(stack);
-		//console.log("======")
-		//console.log(JSON.stringify(stack));
 		bing.stack.value = JSON.stringify(stack);
 		bing.offset.value = bing.nextoffset.value;
 		return bingImageSearch(query, bingSearchOptions(bing), getSubscriptionKey());
@@ -522,7 +512,6 @@ console.log(options);
 
 	<form name="bing" onsubmit="return newBingImageSearch(this)">
 <script>
-console.log("html>")
 </script>
 		<div id="logo">
 			<!-- logo block including search market/language -->
