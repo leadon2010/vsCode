@@ -137,7 +137,7 @@ h3 a:link {
 <script type="text/javascript">
 	// cookie names for data we store
 	// YOUR API KEY DOES NOT GO IN THIS CODE; don't paste it in.
-	API_KEY_COOKIE = "bing-search-api-key";
+	API_KEY_COOKIE = "12345678901234567890123456789012";
 	CLIENT_ID_COOKIE = "bing-search-client-id";
 
 	// Bing Search API endpoint
@@ -225,6 +225,64 @@ h3 a:link {
 		}
 	}
 
+	function renderErrorMessage(message) {
+		showDiv("error", preFormat(message));
+		showDiv("noresults", "No results.");
+	}
+
+	// toggle display of a div (used by JSON/HTTP expandos)
+	function toggleDisplay(id) {
+
+		var element = document.getElementById(id);
+		if (element) {
+			var display = element.style.display;
+			if (display === "none") {
+				element.style.display = "block";
+				window.scrollBy(0, 200);
+			} else {
+				element.style.display = "none";
+			}
+		}
+		return false;
+	}
+
+	// perform a related search (used by related search links)
+	function doRelatedSearch(query) {
+		var bing = document.forms.bing;
+		bing.query.value = query;
+		return newBingImageSearch(bing);
+	}
+
+	// go to the next page (used by next page link)
+	function doNextSearchPage() {
+
+		var bing = document.forms.bing;
+		var query = bing.query.value;
+		var offset = parseInt(bing.offset.value, 10);
+		var stack = JSON.parse(bing.stack.value);
+		stack.push(parseInt(bing.offset.value, 10));
+		bing.stack.value = JSON.stringify(stack);
+		bing.offset.value = bing.nextoffset.value;
+		return bingImageSearch(query, bingSearchOptions(bing), getSubscriptionKey());
+	}
+
+	// go to the previous page (used by previous page link)
+	function doPrevSearchPage() {
+
+		var bing = document.forms.bing;
+		var query = bing.query.value;
+		var stack = JSON.parse(bing.stack.value);
+		if (stack.length) {
+			var offset = stack.pop();
+			var count = parseInt(bing.count.value, 10);
+			bing.stack.value = JSON.stringify(stack);
+			bing.offset.value = offset;
+			return bingImageSearch(query, bingSearchOptions(bing), getSubscriptionKey());
+		}
+		alert("You're already at the beginning!");
+		return false;
+	}
+
 	// render functions for various types of search results
 	searchItemRenderers = {
 		images : function(item, index, count) {
@@ -276,6 +334,20 @@ h3 a:link {
 		return html.join("\n\n");
 	}
 
+	// generate the HTML for paging links (prev/next)
+	function renderPagingLinks(results) {
+
+		var html = [];
+		var bing = document.forms.bing;
+		var offset = parseInt(bing.offset.value, 10);
+		var count = parseInt(bing.count.value, 10);
+		html.push("<p class='paging'><i>Results " + (offset + 1) + " to " + (offset + count));
+		html.push(" of about " + results.totalEstimatedMatches + ".</i> ");
+		html.push("<a href='#' onclick='return doPrevSearchPage()'>Prev</a> | ");
+		html.push("<a href='#' onclick='return doNextSearchPage()'>Next</a>");
+		return html.join("");
+	}
+
 	// render the search results given the parsed JSON response
 	function renderSearchResults(results) {
 
@@ -289,9 +361,27 @@ h3 a:link {
 			showDiv("sidebar", renderRelatedItems(results.relatedSearches));
 	}
 
-	function renderErrorMessage(message) {
-		showDiv("error", preFormat(message));
-		showDiv("noresults", "No results.");
+	// build query options from the HTML form
+	function bingSearchOptions(form) {
+
+		var options = [];
+		options.push("mkt=" + form.where.value);
+		options.push("SafeSearch=" + (form.safe.checked ? "strict" : "off"));
+		if (form.when.value.length)
+			options.push("freshness=" + form.when.value);
+		var aspect = "all";
+		for (var i = 0; i < form.aspect.length; i++) {
+			if (form.aspect[i].checked) {
+				aspect = form.aspect[i].value;
+				break;
+			}
+		}
+		options.push("aspect=" + aspect);
+		if (form.color.value)
+			options.push("color=" + form.color.value);
+		options.push("count=" + form.count.value);
+		options.push("offset=" + form.offset.value);
+		return options.join("&");
 	}
 
 	// handle Bing search request results
@@ -341,8 +431,7 @@ h3 a:link {
 			var errmsg = [];
 
 			// display HTTP status code
-			errmsg.push("HTTP Status " + this.status + " " + this.statusText
-					+ "\n");
+			errmsg.push("HTTP Status " + this.status + " " + this.statusText + "\n");
 
 			// add all fields from all error responses
 			for (var i = 0; i < errors.length; i++) {
@@ -364,18 +453,17 @@ h3 a:link {
 
 	// perform a search given query, options string, and API key
 	function bingImageSearch(query, options, key) {
-
 		// scroll to top of window
 		window.scrollTo(0, 0);
 		if (!query.trim().length)
 			return false; // empty query, do nothing
 
 		showDiv("noresults", "Working. Please wait.");
-		hideDivs("results", "related", "_json", "_http", "paging1", "paging2",
-				"error");
+		hideDivs("results", "related", "_json", "_http", "paging1", "paging2", "error");
 
 		var request = new XMLHttpRequest();
 		var queryurl = BING_ENDPOINT + "?q=" + encodeURIComponent(query) + "&" + options;
+		console.log(query);
 		// open the request
 		try {
 			request.open("GET", queryurl);
@@ -409,96 +497,6 @@ h3 a:link {
 		return false;
 	}
 
-	// build query options from the HTML form
-	function bingSearchOptions(form) {
-
-		var options = [];
-		options.push("mkt=" + form.where.value);
-		options.push("SafeSearch=" + (form.safe.checked ? "strict" : "off"));
-		if (form.when.value.length)
-			options.push("freshness=" + form.when.value);
-		var aspect = "all";
-		for (var i = 0; i < form.aspect.length; i++) {
-			if (form.aspect[i].checked) {
-				aspect = form.aspect[i].value;
-				break;
-			}
-		}
-		options.push("aspect=" + aspect);
-		if (form.color.value)
-			options.push("color=" + form.color.value);
-		options.push("count=" + form.count.value);
-		options.push("offset=" + form.offset.value);
-		return options.join("&");
-	}
-
-	// toggle display of a div (used by JSON/HTTP expandos)
-	function toggleDisplay(id) {
-
-		var element = document.getElementById(id);
-		if (element) {
-			var display = element.style.display;
-			if (display === "none") {
-				element.style.display = "block";
-				window.scrollBy(0, 200);
-			} else {
-				element.style.display = "none";
-			}
-		}
-		return false;
-	}
-
-	// perform a related search (used by related search links)
-	function doRelatedSearch(query) {
-		var bing = document.forms.bing;
-		bing.query.value = query;
-		return newBingImageSearch(bing);
-	}
-
-	// generate the HTML for paging links (prev/next)
-	function renderPagingLinks(results) {
-
-		var html = [];
-		var bing = document.forms.bing;
-		var offset = parseInt(bing.offset.value, 10);
-		var count = parseInt(bing.count.value, 10);
-		html.push("<p class='paging'><i>Results " + (offset + 1) + " to " + (offset + count));
-		html.push(" of about " + results.totalEstimatedMatches + ".</i> ");
-		html.push("<a href='#' onclick='return doPrevSearchPage()'>Prev</a> | ");
-		html.push("<a href='#' onclick='return doNextSearchPage()'>Next</a>");
-		return html.join("");
-	}
-
-	// go to the next page (used by next page link)
-	function doNextSearchPage() {
-
-		var bing = document.forms.bing;
-		var query = bing.query.value;
-		var offset = parseInt(bing.offset.value, 10);
-		var stack = JSON.parse(bing.stack.value);
-		stack.push(parseInt(bing.offset.value, 10));
-		bing.stack.value = JSON.stringify(stack);
-		bing.offset.value = bing.nextoffset.value;
-		return bingImageSearch(query, bingSearchOptions(bing), getSubscriptionKey());
-	}
-
-	// go to the previous page (used by previous page link)
-	function doPrevSearchPage() {
-
-		var bing = document.forms.bing;
-		var query = bing.query.value;
-		var stack = JSON.parse(bing.stack.value);
-		if (stack.length) {
-			var offset = stack.pop();
-			var count = parseInt(bing.count.value, 10);
-			bing.stack.value = JSON.stringify(stack);
-			bing.offset.value = offset;
-			return bingImageSearch(query, bingSearchOptions(bing), getSubscriptionKey());
-		}
-		alert("You're already at the beginning!");
-		return false;
-	}
-
 	function newBingImageSearch(form) {
 		form.offset.value = "0";
 		form.stack.value = "[]";
@@ -511,8 +509,6 @@ h3 a:link {
 <body onload="document.forms.bing.query.focus();">
 
 	<form name="bing" onsubmit="return newBingImageSearch(this)">
-<script>
-</script>
 		<div id="logo">
 			<!-- logo block including search market/language -->
 			<img
@@ -568,7 +564,7 @@ h3 a:link {
 			<!-- query controls including search field and options -->
 			<h2>Bing Image Search API demo</h2>
 
-			<input type="text" name="query" id="term" placeholder="Search for images" autocomplete=off>
+			<input type="text" name="query" id="term" placeholder="Search for images" value="seoul" autocomplete=off>
 
 			<p>
 				Aspect 
