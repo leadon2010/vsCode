@@ -68,13 +68,11 @@
 								//예상되는 도로명 주소에 조합형 주소를 추가한다.
 								var expRoadAddr = data.autoRoadAddress
 										+ extraRoadAddr;
-								document.getElementById('guide').innerHTML = '(예상 도로명 주소 : '
-										+ expRoadAddr + ')';
+								document.getElementById('guide').innerHTML = '(예상 도로명 주소 : ' + expRoadAddr + ')';
 
 							} else if (data.autoJibunAddress) {
 								var expJibunAddr = data.autoJibunAddress;
-								document.getElementById('guide').innerHTML = '(예상 지번 주소 : '
-										+ expJibunAddr + ')';
+								document.getElementById('guide').innerHTML = '(예상 지번 주소 : ' + expJibunAddr + ')';
 
 							} else {
 								document.getElementById('guide').innerHTML = '';
@@ -128,7 +126,7 @@
 					// 인포윈도우로 장소에 대한 설명을 표시합니다
 					var infowindow = new daum.maps.InfoWindow(
 							{
-								content : '<div style="width:250px;text-align:center;padding:2px 0;font-size:100%">'+myAddr1+'</div>'
+								content : '<div style="width:250px;text-align:center;padding:2px 0;font-size:100%">'+myAddr2+'</div>'
 							});
 					infowindow.open(map, marker);
 
