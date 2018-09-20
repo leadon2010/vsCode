@@ -5,21 +5,15 @@
 	<h2>JavaScript HTML DOM</h2>
 
 	<p>Hello World!</p>
-
 	<p>Hello Norway!</p>
+	<p>Hello Myway!</p>
+	<p>Hello Yourway!</p>
+	<p>Hello Goaway!</p>
 
-	<p>Click the button to change the color of all p elements.</p>
-
-	<p>Hello World!</p>
-
-	<p>Hello Norway!</p>
-
-	<p>Click the button to change the color of all p elements.</p>
-
-	<button onclick="myFunction()">Try it</button>
+	<button onclick="changeFunc()">Change it</button>
 
 	<script>
-		function myFunction() {
+		function changeFunc() {
 			var myCollection = document.getElementsByTagName("p");
 			var i = 0;
 			var j = myCollection.length;
@@ -49,7 +43,7 @@
 
 			if (cnt == 0) {
 				myCollection[0].style.color = origCol;
-			} else if (cnt == 5) {
+			} else if (cnt == myCollection.length-1) {
 				myCollection[0].style.color = chagCol;
 			}
 
