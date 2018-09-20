@@ -9,15 +9,22 @@
 </head>
 <body>
 	<h2>author list</h2>
+	<a href="./fileupload/upload.html">Upload.html</a>
 	<table border='1'>
 		<tr>
+			<th>Num</th>
 			<th>author</th>
 			<th>title</th>
+			<th>filename</th>
+			<th>day</th>
 		</tr>
 		<c:forEach items="${list }" var="l">
 			<tr>
+				<td>${l.num }</td>
 				<td>${l.author }</td>
 				<td>${l.title }</td>
+				<td>${l.file }</td>
+				<td>${l.day }</td>
 			</tr>
 		</c:forEach>
 	</table>

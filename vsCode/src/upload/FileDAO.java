@@ -21,7 +21,7 @@ public class FileDAO {
 	public int uploadFile(String author, String title, String file) {
 		Connection conn = DbCon.connect();
 		int r = 0;
-		String sql = "insert into fileboard values((select max(num)+1 from fileboard), ?, ?, ?, to_char(sysdate,'YYYY-MM-DD'))";
+		String sql = "insert into fileboard values((select nvl(max(num)+1,1) from fileboard), ?, ?, ?, to_char(sysdate,'YYYY-MM-DD'))";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, author);
@@ -46,7 +46,7 @@ public class FileDAO {
 		Connection conn = DbCon.connect();
 		ArrayList<FileVO> list = new ArrayList<>();
 		FileVO vo;
-		String sql = "select num, author, title, filename, day from fileboard";
+		String sql = "select num, author, title, filename, day from fileboard order by num";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			ResultSet rs = pstmt.executeQuery();
