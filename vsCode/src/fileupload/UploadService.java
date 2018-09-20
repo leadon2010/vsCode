@@ -1,4 +1,4 @@
-package upload;
+package fileupload;
 
 import java.io.IOException;
 

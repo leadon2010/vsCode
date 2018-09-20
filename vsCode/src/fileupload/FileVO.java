@@ -1,4 +1,4 @@
-package upload;
+package fileupload;
 
 public class FileVO {
 	private int num;
