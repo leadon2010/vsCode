@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	var i;
+	for (i = 0; i < 10; i++) {
+		(function(j) {
+			setTimeout(function() {
+				console.log(j);
+			}, 1000);
+		})(i);
+	}
+</script>
+</head>
+<body>
+
+</body>
+</html>
