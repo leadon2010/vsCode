@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h3>관심주제</h3>
+	<form>
+		<select name="subjects" id="subjects" size="10" multiple>
+			<option class="opt">HTML1-1</option>
+			<option class="opt">HTML1-2</option>
+			<option class="opt">HTML1-3</option>
+			<option class="opt">HTML1-4</option>
+			<option class="opt">HTML1-5</option>
+		</select>
+
+		<button type="button" id="plus" value="plus" onclick="myplus()">+</button>
+		<button type="button" id="minus" value="minus" onclick="myminus()">-</button>
+
+		<select name="rejects" id="rejects" size="10" multiple>
+			<option class="rjt">HTML2-1</option>
+			<option class="rjt">HTML2-2</option>
+			<option class="rjt">HTML2-3</option>
+			<option class="rjt">HTML2-4</option>
+			<option class="rjt">HTML2-5</option>
+		</select>
+	</form>
+	<script>
+		var $sub = document.getElementById("subjects");
+		var $rej = document.getElementById("rejects");
+
+		var $opt = document.getElementsByClassName("opt");
+		var $rjt = document.getElementsByClassName("rjt");
+
+		function myplus() {
+			var $selected = $sub.selectedIndex;
+
+			$rej.prepend($opt[$selected]);
+			$rej.firstChild.setAttribute("class", "rjt");
+		}
+
+		function myminus() {
+			var $selected = $rej.selectedIndex;
+
+			$sub.prepend($rjt[$selected]);
+			$sub.firstChild.setAttribute("class", "opt");
+		}
+	</script>
+
+</body>
+</html>
