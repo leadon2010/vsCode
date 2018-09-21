@@ -19,9 +19,6 @@ public class MapTest {
 		map.put("user_pw", "23456");
 		list.add(map);
 
-		for (Map<String, Object> m : list) {
-			System.out.println(m.get("user_id") + ", " + m.get("user_name") + ", " + m.get("user_pw"));
-		}
 		return list;
 
 	}
