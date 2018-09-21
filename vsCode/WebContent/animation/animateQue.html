@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.3.1.min.js"></script>
+<style>
+* {
+	margin: 0;
+}
+
+.txt1 {
+	width: 70px;
+	text-align: center;
+	background-color: aqua;
+}
+</style>
+<script>
+	$(function() {
+		$(".txt1").animate({
+			marginLeft : "200px"
+		}, 1000).animate({
+			marginTop : "200px"
+		}, 1000).queue(function() {
+			$(this).css({
+				background : "red"
+			});
+			$(this).dequeue();
+		}).animate({
+			marginLeft : 0
+		}, 1000).animate({
+			marginTop : 0
+		}, 1000);
+	})
+</script>
+</head>
+<body>
+	<p class="txt1">Contents</p>
+</body>
+</html>

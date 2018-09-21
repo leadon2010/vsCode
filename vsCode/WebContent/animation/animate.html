@@ -4,8 +4,32 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="../js/jquery-3.3.1.min.js"></script>
-<script>
+<style>
+.txt1 {
+	background-color: aqua;
+}
 
+.txt2 {
+	background-color: pink;
+}
+</style>
+<script>
+	$(function() {
+		$(".btn1").on("click", function() {
+			$(".txt1").animate({
+				marginLeft : "500px",
+				fontSize : "30px"
+			}, 2000, "linear", function() {
+				alert("motion completed.")
+			})
+		});
+
+		$(".btn2").on("click", function() {
+			$(".txt2").animate({
+				marginLeft : "+=50px"
+			}, 1000);
+		})
+	})
 </script>
 </head>
 <body>
