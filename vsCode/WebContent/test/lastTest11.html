@@ -9,16 +9,16 @@
 		$("#plus").on("click", function(e) {
 			console.log();
 			$("#rejects").append($("#subjects :selected"));
-			$("#rejects").children().each(function() {
-				$(this).attr("class", "rjt");
-			})
+			//$("#rejects").children().each(function() {
+			//	$(this).attr("class", "rjt");
+			//})
 		});
 
 		$("#minus").on("click", function() {
 			$("#subjects").append($("#rejects :selected"));
-			$("#subjects").children().each(function() {
-				$(this).attr("class", "opt");
-			})
+			//$("#subjects").children().each(function() {
+			//	$(this).attr("class", "opt");
+			//})
 		})
 	})
 </script>

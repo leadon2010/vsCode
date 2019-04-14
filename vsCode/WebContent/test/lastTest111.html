@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../js/jquery-3.3.1.min.js"></script>
+	<script>
+		$(function () {
+			$("#plus").on("click", function (e) {
+				console.log();
+				$("#rejects").append($("#subjects :selected"));
+				$("#rejects").children().each(function() {
+					$(this).attr("class", "rjt");
+				})
+			});
+
+			$("#minus").on("click", function () {
+				$("#subjects").append($("#rejects :selected"));
+				$("#subjects").children().each(function() {
+					$(this).attr("class", "opt");
+				})
+			})
+		})
+	</script>
+</head>
+
+<body>
+	<h3>선택한 option을 상대편으로 옮기기</h3>
+	<form>
+		<select name="subjects" id="subjects" size="10"  >
+			<option >취미1-1</option>
+			<option >취미2-1</option>
+			<option >취미3-1</option>
+			<option >취미4-1</option>
+			<option >취미5-1</option>
+		</select>
+
+		<button type="button" id="plus" >+</button>
+		<button type="button" id="minus" >-</button>
+
+		<select name="rejects" id="rejects" size="10"  >
+			<option >취미2-1</option>
+			<option >취미2-2</option>
+			<option >취미2-3</option>
+			<option >취미2-4</option>
+			<option >취미2-5</option>
+		</select>
+	</form>
+
+</body>
+
+</html>
