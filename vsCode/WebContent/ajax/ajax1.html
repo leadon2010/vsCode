@@ -8,17 +8,17 @@
 	$(function() {
 		$("#newsWrap1").load("hello.html #new1");
 		$("#newsWrap2").load("hello.html #new2");
-		$("#newsWrap3").load("employee.jsp");
+		$("#newsWrap3").load("empList.jsp");
 
 		$.ajax({
-			url : "employee.jsp",
+			url : "empList.jsp",
+			//dataType:"json",
 			success : function(result) {
 				var datas = JSON.parse(result);
+				//var datas = result;
 				var tag = "<ul />";
 				$.map(datas, function(r) {
-					tag += "<li>" + r.lastName + "," + r.email + ","
-							+ r.hireDate
-					"</li>";
+					tag += "<li>" + r.lastName + "," + r.email + "," + r.hireDate "</li>";
 				});
 				//$("#newsWrap2").html(tag);
 				$("#newsWrap3").html(tag);
