@@ -8,7 +8,7 @@
 	$(function() {
 		$("#newsWrap1").load("hello.html #new1");
 		$("#newsWrap2").load("hello.html #new2");
-		$("#newsWrap3").load("empList.jsp");
+		$("#newsWrap3").load("empList.jsp?action=list");
 
 		$.ajax({
 			url : "empList.jsp?action=list",
