@@ -11,7 +11,7 @@
 		$("#newsWrap3").load("empList.jsp");
 
 		$.ajax({
-			url : "empList.jsp",
+			url : "empList.jsp?action=list",
 			//dataType:"json",
 			success : function(result) {
 				var datas = JSON.parse(result);
@@ -65,7 +65,7 @@
 </script>
 </head>
 <body>
-	<form id="frm1" action="insertEmp">
+	<form id="frm1" action="insert">
 		firstName:<input type="text" name="firstName" value="Charlie"><br>
 		lastName:<input type="text" name="lastName" value="Austin"><br>
 		email:<input type="text" name="email" value="Charlie.Austin2"><br>

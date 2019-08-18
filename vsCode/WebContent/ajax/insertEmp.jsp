@@ -18,6 +18,7 @@
 	} catch (Exception e) {
 		e.printStackTrace();
 	}
+	
 
 	String firstName = request.getParameter("firstName");
 	String lastName = request.getParameter("lastName");
@@ -26,7 +27,7 @@
 	String hireDate = request.getParameter("hireDate");
 	String jobId = request.getParameter("jobId");
 
-	String sql = "insert into employees( employee_id, first_name, last_name, email, salary, hire_date, job_id) "
+	String sql = "insert into employees(employee_id, first_name, last_name, email, salary, hire_date, job_id) "
 			+ " values((select max(employee_id)+1 from employees), ?, ?, ?, ?, to_date(?,'yyyy-mm-dd'), ?) ";
 
 	try {
