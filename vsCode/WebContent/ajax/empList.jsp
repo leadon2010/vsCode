@@ -22,7 +22,7 @@
 		e.printStackTrace();
 	}
 
-	String sql = "select * from employees";
+	String sql = "select * from employees where rownum<=10";
 	List<Employee> list = new ArrayList<>();
 
 	try {
