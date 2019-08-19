@@ -48,6 +48,7 @@
 			e.printStackTrace();
 		}
 		out.print(JSONArray.fromObject(list).toString());
+
 	} else if (action.equals("insert")) {
 		String firstName = request.getParameter("firstName");
 		String lastName = request.getParameter("lastName");
@@ -69,8 +70,14 @@
 			pstmt.setString(6, jobId);
 			int r = pstmt.executeUpdate();
 			System.out.println(r + " 건 입력됨.");
+			if (r > 0) {
+				out.print("ok");
+			} else {
+				out.print("fail");
+			}
 
 		} catch (Exception e) {
+			out.print("exception");
 			e.printStackTrace();
 		}
 	}
