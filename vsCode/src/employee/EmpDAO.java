@@ -30,6 +30,8 @@ public class EmpDAO {
 				emp.setEmployeeId(rs.getInt("employee_id"));
 				emp.setSalary(rs.getInt("salary"));
 				emp.setHireDate(rs.getString("hire_date"));
+				emp.setEmail(rs.getString("email"));
+				emp.setJobId(rs.getString("job_id"));
 				list.add(emp);
 			}
 		} catch (SQLException e) {

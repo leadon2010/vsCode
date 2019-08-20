@@ -11,16 +11,9 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
     <script>
         $(document).ready(function(){
-			$.ajax({
-				url: "",
-				data: {
-					
-				},
-				dataType: "json"
-				success: function(result) {
-					console.log(result)
-				}
-			});
+        	$("#example").DataTable({
+        		"ajax": "http://localhost/vsCode/EmpServlet"
+        	})
         });
     </script>
 </head>
@@ -31,8 +24,8 @@
             <tr>
                 <th>First name</th>
                 <th>Last name</th>
-                <th>Position</th>
-                <th>Office</th>
+                <th>Job</th>
+                <th>Email</th>
                 <th>Start date</th>
                 <th>Salary</th>
             </tr>
