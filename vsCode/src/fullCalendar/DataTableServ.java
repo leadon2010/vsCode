@@ -46,6 +46,7 @@ public class DataTableServ extends HttpServlet {
 			dat.setTitle(title);
 			dat.setStartDate(startDate);
 			dat.setEndDate(endDate);
+			System.out.println(dat);
 
 			dao.insertEvent(dat);
 

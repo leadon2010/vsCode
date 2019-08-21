@@ -24,16 +24,44 @@
                     var calendarEl = document.getElementById('calendar');
 
                     var calendar = new FullCalendar.Calendar(calendarEl, {
-                        plugins: ['interaction', 'dayGrid', 'timeGrid', 'list'],
+                        plugins: ['interaction', 'dayGrid', 'timeGrid'],
                         header: {
                             left: 'prev,next today',
                             center: 'title',
-                            right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
+                            right: 'dayGridMonth,timeGridWeek,timeGridDay'
                         },
                         defaultDate: '2019-08-12',
                         navLinks: true, // can click day/week names to navigate views
-                        businessHours: true, // display business hours
+                        selectable: true,
+                        selectMirror: true,
+                        select: function (arg) {
+                            var title = prompt('Event Title:');
+                            //var eventDate = prompt("Event Time:","2017-01-01");
+                            console.log(arg);
+                            if (title) {
+                                calendar.addEvent({
+                                    title: title,
+                                    start: arg.start,
+                                    end: arg.end,
+                                    allDay: arg.allDay
+                                })
+
+                                /////////////////////////////////
+                                var xhtp = new XMLHttpRequest();
+                                xhtp.onreadystatechange = function () {
+                                    if (this.readyState == 4 && this.status == 200) {
+                                        console.log(this.responseText);
+                                    }
+                                };
+                                var param = "&title=" + title + "&startDate=" + arg.startStr.substr(0, 19) + "&endDate=" + arg.endStr.substr(0, 19);
+                                xhtp.open("POST", "../../DataTableServ?action=insert" + param, true);
+                                xhtp.send();
+                                /////////////////////////////////
+                            }
+                            calendar.unselect()
+                        },
                         editable: true,
+                        eventLimit: true, // allow "more" link when too many events
                         events: eventData
                     });
 

@@ -16,7 +16,7 @@ public class CalendarDAO {
 
 	public void insertEvent(DataTable dat) {
 		conn = DbCon.connect();
-		String sql = "insert into data_table values(?,?,?,?)";
+		String sql = "insert into data_table values(?,?,?,?,sysdate)";
 		int r = 1;
 
 		try {
