@@ -10,7 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import net.sf.json.JSONArray;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 @WebServlet("/DataTableServ")
 public class DataTableServ extends HttpServlet {
@@ -32,7 +33,10 @@ public class DataTableServ extends HttpServlet {
 			out.print("no action");
 
 		} else if (action.equals("insert")) {
-			int groupId = Integer.parseInt(request.getParameter("groupId"));
+			System.out.println("insert call.");
+			int groupId = 0;
+			if (request.getParameter("groupId") != null)
+				groupId = Integer.parseInt(request.getParameter("groupId"));
 			String title = request.getParameter("title");
 			String startDate = request.getParameter("startDate");
 			String endDate = request.getParameter("endDate");
@@ -47,7 +51,19 @@ public class DataTableServ extends HttpServlet {
 
 		} else if (action.equals("list")) {
 			List<DataTable> list = dao.getEventList();
-			out.print(JSONArray.fromObject(list).toString());
+//			out.print(JSONArray.fromObject(list).toString());
+			JSONArray ary = new JSONArray();
+			JSONObject obj = null;
+
+			for (DataTable data : list) {
+				obj = new JSONObject();
+				obj.put("groupId", data.getGroupId());
+				obj.put("title", data.getTitle());
+				obj.put("start", data.getStartDate());
+				obj.put("end", data.getEndDate());
+				ary.add(obj);
+			}
+			out.print(ary.toString());
 
 		}
 

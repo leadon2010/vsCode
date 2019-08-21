@@ -17,10 +17,12 @@ public class CalendarDAO {
 	public void insertEvent(DataTable dat) {
 		conn = DbCon.connect();
 		String sql = "insert into data_table values(?,?,?,?)";
-		int r = 0;
+		int r = 1;
+
 		try {
+			String groupId = dat.getGroupId() == 0 ? null : "\"" + dat.getGroupId() + "\"";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(r++, dat.getGroupId());
+			pstmt.setString(r++, groupId);
 			pstmt.setString(r++, dat.getTitle());
 			pstmt.setString(r++, dat.getStartDate());
 			pstmt.setString(r++, dat.getEndDate());
