@@ -11,20 +11,20 @@ import java.util.Map;
 
 import common.DbCon;
 
-public class EmpDAO {
+public class SEmpDAO {
 	PreparedStatement pstmt = null;
 	Connection conn = null;
 
-	public List<Employee> getEmplsList() {
+	public List<SEmployee> getEmplsList() {
 		conn = DbCon.connect();
-		List<Employee> list = new ArrayList<>();
-		Employee emp;
+		List<SEmployee> list = new ArrayList<>();
+		SEmployee emp;
 		String sql = "select * from employees order by 1 desc";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {
-				emp = new Employee();
+				emp = new SEmployee();
 				emp.setFirstName(rs.getString("first_name"));
 				emp.setLastName(rs.getString("last_name"));
 				emp.setEmployeeId(rs.getInt("employee_id"));
@@ -46,10 +46,10 @@ public class EmpDAO {
 		return list;
 	}
 
-	public List<Employee> getEmpList(String name) {
+	public List<SEmployee> getEmpList(String name) {
 		conn = DbCon.connect();
-		Employee emp;
-		List<Employee> list = new ArrayList<>();
+		SEmployee emp;
+		List<SEmployee> list = new ArrayList<>();
 
 		String sql = "select first_name, last_name, salary from employees where first_name like '%'||'" + name
 				+ "'||'%'";
@@ -58,7 +58,7 @@ public class EmpDAO {
 			System.out.println(sql);
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {
-				emp = new Employee();
+				emp = new SEmployee();
 				emp.setFirstName(rs.getString("first_name"));
 				emp.setLastName(rs.getString("last_name"));
 				emp.setSalary(rs.getInt("salary"));
@@ -104,7 +104,7 @@ public class EmpDAO {
 
 	}
 
-	public void insertEmp(Employee emp) {
+	public void insertEmp(SEmployee emp) {
 		conn = DbCon.connect();
 		String sql = "insert into employees(employee_id, last_name, email, hire_date, job_id) "
 				+ "values((select max(employee_id)+1 from employees),?,?,?,?)";

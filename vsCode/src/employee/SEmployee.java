@@ -1,6 +1,6 @@
 package employee;
 
-public class Employee {
+public class SEmployee {
 	private int employeeId;
 	private String firstName;
 	private String lastName;

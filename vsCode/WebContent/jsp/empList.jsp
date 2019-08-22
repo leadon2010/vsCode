@@ -32,9 +32,9 @@
 		</thead>
 		<tbody>
 			<%
-				EmpDAO dao = new EmpDAO();
-				List<Employee> list = dao.getEmplsList();
-				for (Employee emp : list) {
+				SEmpDAO dao = new SEmpDAO();
+						List<SEmployee> list = dao.getEmplsList();
+						for (SEmployee emp : list) {
 			%>
 			<tr>
 				<td><%=emp.getFirstName()%></td>

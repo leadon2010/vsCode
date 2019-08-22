@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import employee.EmpDAO;
-import employee.Employee;
+import employee.SEmpDAO;
+import employee.SEmployee;
 
 /**
  * Servlet implementation class ControlTest
@@ -46,8 +46,8 @@ public class ControlTest extends HttpServlet {
 			System.out.println("no action");
 
 		} else if (action.equals("insertEmp")) {
-			EmpDAO dao = new EmpDAO();
-			Employee emp = new Employee();
+			SEmpDAO dao = new SEmpDAO();
+			SEmployee emp = new SEmployee();
 			emp.setLastName(request.getParameter("lastName"));
 			emp.setEmail(request.getParameter("email"));
 			emp.setHireDate(request.getParameter("hireDate"));
