@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax Json Sample</title>
+    <script src="./jquery/jquery-3.3.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                url: "./MOCK_DATA.json",
+                dataType: "json",
+                success: function (result) {
+                    console.log(result);
+                    var datas = result;
+                    var $table = $('<table>').attr({ 'id': 'tbl', 'border': '1' });
+                    var $tr, $td, $field;
+                    $(datas).each(function (ind, val) {
+                        if (ind == 0) {
+                            $tr = $('<tr>');
+                            for ($field in val) {
+                                console.log($field);
+                                $tr.append($('<th>').text($field));
+                            }
+                            $tr.append($('<th>').html($('<input>').attr({ 'type': 'checkbox', 'id': 'checkAll' })), $('<th>').text('show/hide'), $('<th>').text('remove'));
+                            $table.append($tr);
+                        }
+                        $tr = $('<tr>');
+                        for ($field in val) {
+                            $tr.append($('<td>').text(val[$field]));
+                        }
+                        $tr.append($('<td>').html($('<input>').attr({ 'type': 'checkbox', 'id': val.id }).click(displayColor)),
+                            $('<td>').html($('<button>').html('hide').click(displayHide)),
+                            $('<td>').html($('<button>').html('remove').click(displayRemove))
+                        );
+                        $table.append($tr);
+                    })
+                    $('#show').append($table);
+                }
+            });
+        });
+        $(document).on('click', $('#id'), function () {
+            console.log($('#checkAll').is(":checked"));
+            $yesNo = $('#checkAll').is(":checked");
+            $('td input[type="checkbox"]').each(function (ind, val) {
+                $(this).attr('checked', $yesNo);
+                if ($yesNo)
+                    $(this).parent().parent().css('background-color', 'yellow')
+                else
+                    $(this).parent().parent().css('background-color', 'white')
+            })
+        })
+
+        function displayRemove() {
+            $(this).parent().parent().remove();
+        }
+        function displayHide() {
+            $(this).parent().parent().css('display', 'none');
+        }
+        function displayColor() {
+            var elem = $(this).parent().parent();
+            if ($(this).is(":checked")) {
+                $(this).prop('checked', true);
+                elem.css('background-color', 'yellow');
+            }
+            else {
+                $(this).prop('checked', false);
+                elem.css('background-color', 'white');
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id='show'></div>
+</body>
+
+</html>
