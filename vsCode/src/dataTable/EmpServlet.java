@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-import employee.SEmpDAO;
-import employee.SEmployee;
+import employee.EmpDAO;
+import employee.Employee;
 
 /**
  * Servlet implementation class EmpServlet
@@ -31,12 +31,12 @@ public class EmpServlet extends HttpServlet {
 			throws ServletException, IOException {
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
 
-		SEmpDAO dao = new SEmpDAO();
-		List<SEmployee> list = dao.getEmplsList();
+		EmpDAO dao = new EmpDAO();
+		List<Employee> list = dao.getEmplsList();
 		JSONArray ary = null;
 		JSONArray orig = new JSONArray();
 		JSONObject obj = new JSONObject();
-		for (SEmployee emp : list) {
+		for (Employee emp : list) {
 			System.out.println(emp.getFirstName());
 			ary = new JSONArray();
 			ary.add(emp.getFirstName());

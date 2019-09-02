@@ -6,7 +6,7 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.util.*"%>
 <%@page import="net.sf.json.JSONArray"%>
-<%@page import="employee.SEmployee"%>
+<%@page import="employee.Employee"%>
 
 <%
 	String jdbc_driver = "oracle.jdbc.driver.OracleDriver";
@@ -27,14 +27,14 @@
 	if (action.equals("list")) {
 
 		String sql = "select * from employees where rownum<=10";
-		List<SEmployee> list = new ArrayList<>();
+		List<Employee> list = new ArrayList<>();
 
 		try {
 	PreparedStatement pstmt = conn.prepareStatement(sql);
 	ResultSet rs = pstmt.executeQuery();
-	SEmployee emp = null;
+	Employee emp = null;
 	while (rs.next()) {
-		emp = new SEmployee();
+		emp = new Employee();
 		emp.setEmployeeId(rs.getInt("employee_id"));
 		emp.setFirstName(rs.getString("first_name"));
 		emp.setLastName(rs.getString("last_name"));
