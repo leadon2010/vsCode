@@ -3,7 +3,7 @@
 <%@page import="java.sql.Connection" %>
 <%@page import="java.sql.DriverManager" %>
 <%@page import="java.util.*" %>
-<%@page import="ajaxText.employee.Employee" %>
+<%@page import="employee.Employee" %>
 <%@page import="java.sql.PreparedStatement" %>
 <%@page import="java.sql.ResultSet" %>
 <%@page import="net.sf.json.JSONArray" %>
@@ -78,7 +78,7 @@
 			Employee emp = null;
 			while(rs.next()){
 				emp = new Employee();
-				emp.setEmploeeId(rs.getInt("employee_id"));
+				emp.setEmployeeId(rs.getInt("employee_id"));
 				emp.setFirstName(rs.getString("first_name"));
 				emp.setLastName(rs.getString("last_name"));
 				emp.setEmail(rs.getString("email"));
