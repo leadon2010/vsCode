@@ -14,7 +14,7 @@
 				console.log($("#frm1").serializeArray());
 				$.ajax({
 					url: $("#frm1").attr("action"),
-					type:"post",
+					type: "post",
 					data: $("#frm1").serializeArray(),
 					success: function () {
 						console.log("good");
@@ -26,8 +26,8 @@
 </head>
 
 <body>
-	<form id="frm1" action="<%=request.getContextPath()%>/AjaxParam">
-		<input type="text" name="firstName" value="myfirst"/><br>
+	<form id="frm1" action="">
+		<input type="text" name="firstName" value="myfirst" /><br>
 		<input type="text" name="salary" value=300 /><br>
 		<select name="hobby">
 			<option value="book1" selected>Book1</option>
@@ -35,7 +35,7 @@
 			<option value="book3">Book3</option>
 			<option value="book4">Book4</option>
 		</select><br>Favorite:<br>
-		<input type="checkbox" name="favorite" value="apple" checked="checked"/>apple<br>
+		<input type="checkbox" name="favorite" value="apple" checked="checked" />apple<br>
 		<input type="checkbox" name="favorite" value="banana" checked="checked" />banana<br>
 		<input type="checkbox" name="favorite" value="melon" checked="checked" />melon<br>
 		<input type="submit" value="Submit" />
