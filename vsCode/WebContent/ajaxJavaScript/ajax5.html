@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.3.1.min.js"></script>
+<script>
+	$(function() {
+		var startView = 0;
+		var perView = 10;
+		var endView = startView + perView;
+
+		function setView() {
+			startView = endView;
+			endView = startView + perView;
+			console.log(startView + ", " + endView);
+		}
+
+		$.ajax({
+			url : 'http://myhome.chosun.com/rss/www_section_rss.xml',
+			dataType : "xml",
+			success : callbackAll,
+		});// end of ajax
+
+		function callbackAll(data) {
+			console.log(data);
+			var $items = $(data).find("item");
+			if ($items.length > 0) {
+				$items = $items.slice(startView, endView);
+				var $ulTag = $("<ul />");
+				$.each($items, function(i, o) {
+					console.log(i);
+					console.log(o);
+					var $title = $(o).find("title").text();
+					var $link = $(o).find("link").text();
+					var $desc = $(o).find("description").text(); // 사용안함.
+					var $aTag = $("<a />").attr({
+						"href" : $link,
+						"target" : "_blank"
+					}).html($title);
+					var $liTag = $("<li />").append($aTag);
+					$ulTag.append($liTag);
+				});
+				$(".wrap").append($ulTag);
+				setView();
+			}
+		}//endof callbackAll
+
+		$("#moreView").on("mouseover focus", function() {
+			$.ajax({
+				url : 'http://myhome.chosun.com/rss/www_section_rss.xml',
+				success : callbackAll,
+			});
+		});//end of moreView
+	});
+</script>
+</head>
+<body>
+	<div class="wrap"></div>
+	<div id="moreView">======================더보기========================</div>
+</body>
+</html>

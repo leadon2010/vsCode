@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.3.1.min.js"></script>
+<script>
+	$(function() {
+		$.ajax({
+			url : "http://ivyleadon.ivyro.net/jsonData.json",
+			dataType : "jsonp",
+		}).done(function myFnc(data) {
+			console.log(data);
+		})
+	})
+</script>
+</head>
+<body>
+
+</body>
+</html>

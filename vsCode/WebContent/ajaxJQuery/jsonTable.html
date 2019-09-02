@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jsonTable</title>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
+<script>
+var from="GMP";
+var to = "HND";
+var date = "2018/09/15";
+
+	$(document).ready(function() {
+		$.ajax({
+			url : "https://api.flightstats.com/flex/schedules/rest/v1/json/from/"+from+"/to/"+to+"/departing/"+date+"?appId=6d442315&appKey=301aa216b58dee04e31de0f4d5733590",
+			success:function(datas){
+				console.log(datas);
+				var dataSet = [];
+				for (var i = 0; i < datas.scheduledFlights.length; i++) {
+					for(var j = 0 ; j < datas.appendix.airlines.length ; j++){
+			        	if(datas.scheduledFlights[i].carrierFsCode == datas.appendix.airlines[j].fs){
+			        		airlines = datas.appendix.airlines[j].name;
+						}
+			        } 
+					var dataArr = [];
+					dataArr.push(datas.scheduledFlights[i].departureAirportFsCode);
+					dataArr.push(datas.scheduledFlights[i].departureTime.substring(11,16))
+					dataArr.push(datas.scheduledFlights[i].arrivalAirportFsCode)
+					dataArr.push(datas.scheduledFlights[i].arrivalTime.substring(11,16))
+					dataArr.push(datas.scheduledFlights[i].carrierFsCode + datas.scheduledFlights[i].flightNumber)
+ 					dataArr.push(airlines);
+					dataSet.push(dataArr);
+
+				}
+				//console.log(dataSet);
+				$('#example').DataTable( {
+			        data: dataSet,
+			        columns: [
+			            { title: "From" },
+			            { title: "Depart.Time" },
+			            { title: "To" },
+			            { title: "Arrial.Time" },
+			            { title: "AirLine" },
+			            { title: "AirCode" }
+			        ]
+			    } );
+			}
+		});
+	});
+</script>
+
+</head>
+<body>
+	<table id="example" class="display" width="100%"></table>
+
+</body>
+</html>

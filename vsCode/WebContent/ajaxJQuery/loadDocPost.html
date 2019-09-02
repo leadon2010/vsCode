@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+	<div id="demo">
+		<h2>The XMLHttpRequest Object</h2>
+		<button type="button" onclick="loadDoc()">Change Content</button>
+		<br>
+	</div>
+
+	<script>
+		function loadDoc() {
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if (xhttp.readyState == 4 && xhttp.status == 200) {
+					document.getElementById("demo").innerHTML += "status 1==> "
+							+ this.readyState + ", " + this.status
+							+ ", response=>" + xhttp.responseText + " ::<br>";
+				} else {
+					document.getElementById("demo").innerHTML += "status 2==> "
+							+ this.readyState + ", " + this.status
+							+ ", response=>" + xhttp.responseText + " ::<br>";
+				}
+
+			};
+			//console.log(xhttp.onreadystatechange);
+			xhttp.open("POST", "objectTest.jsp", true);//true일 경우 비동기방식, id, name parameter.
+			xhttp.setRequestHeader("Content-type",
+					"application/x-www-form-urlencoded");
+			xhttp.send("fname=Donuld&lname=Duck");//웹서버에 요청전송
+		}
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="jquery-3.3.1.min.js"></script>
+<script>
+$(function(){
+    $("#b1").click(function(){
+        $("#test").hide();
+    });
+    $("#b2").click(function(){
+    	$("#test").show();
+    });
+});
+</script>
+</head>
+<body>
+
+<h2>This is a heading</h2>
+
+<p>This is a paragraph.</p>
+<p id="test">This is another paragraph.</p>
+
+<button id="b1">Click me</button>
+<button id="b2">Click me2</button>
+
+</body>
+</html>

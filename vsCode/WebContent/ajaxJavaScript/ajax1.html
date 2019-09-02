@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.3.1.min.js"></script>
+<script>
+	$(function() {
+		$("#newsWrap1").load("hello.html #new1");
+		$("#newsWrap2").load("hello.html #new2");
+		$("#newsWrap3").load("empList.jsp?action=list");
+
+		$.ajax({
+			url : "empList.jsp?action=list",
+			//dataType:"json",
+			success : function(result) {
+				var datas = JSON.parse(result);
+				//var datas = result;
+				var tag = "<ul />";
+				$.map(datas, function(r) {
+					tag += "<li>" + r.lastName + "," + r.email + ","
+							+ r.hireDate + "</li>";
+				});
+				//$("#newsWrap2").html(tag);
+				$("#newsWrap4").html(tag);
+			},
+		})// end of ajax
+
+		$("#btn1").on("click", function() {
+			var todate = new Date();
+			$.ajax({
+				url : "../ControlTest",
+				data : {
+					action : 'insertEmp',
+					lastName : 'ajax1',
+					email : 'ajax3',
+					hireDate : '2018-09-10',
+					jobId : 'IT_PROG'
+				},
+				success : function(result) {
+					console.log(result);
+				},
+			})
+		})// endof btn1
+
+		$("#submit").on("click", function() {
+			$.ajax({
+				url : "empList.jsp",
+				data : {
+					action : $("#frm1").attr("action"),
+					firstName : $("[name='firstName']").val(),
+					lastName : $("[name='lastName']").val(),
+					email : $("[name='email']").val(),
+					hireDate : $("[name='hireDate']").val(),
+					jobId : $("[name='jobId']").val()
+				},
+				success : function(result) {
+					console.log(result);
+				}
+			})
+
+		});
+
+	});
+</script>
+</head>
+<body>
+	<form id="frm1" action="insert">
+		firstName:<input type="text" name="firstName" value="Charlie"><br>
+		lastName:<input type="text" name="lastName" value="Austin"><br>
+		email:<input type="text" name="email" value="Charlie.Austin2"><br>
+		hireDate:<input type="text" name="hireDate" value="2010-05-05"><br>
+		jobId:<input type="text" name="jobId" value="IT_PROG"><br>
+		salary:<input type="text" name="salary" value=3000><br>
+		<input type="button" id="submit" value="Submit"><br>
+	</form>
+	<button id="btn1">Try</button>
+	<h1>LOAD 1</h1>
+	<div id="newsWrap1"></div>
+	<h1>LOAD 2</h1>
+	<div id="newsWrap2"></div>
+	<h1>LOAD 3</h1>
+	<div id="newsWrap3"></div>
+	<h1>LOAD 4</h1>
+	<div id="newsWrap4"></div>
+</body>
+</html>

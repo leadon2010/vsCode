@@ -1,0 +1,3 @@
+<p>ajax test file.<br></p>
+<p>hello world.<br></p>
+<p>javascript is good language.<br></p>
