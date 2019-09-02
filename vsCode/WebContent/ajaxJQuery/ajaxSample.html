@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ajax Test.</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+	$(document).ready(function() {
+		$.ajax({
+			url:"empList.jsp?action=select",
+			//data: {action: "select"},
+			success: function(result) {
+				console.log(result);
+				var datas = JSON.parse(result);
+				console.log(datas);
+				var $table = $("<table>").attr({"border":"1","id":"tbl1"});
+				$.map(datas, function(r) {
+					var $tr = $("<tr>").append(
+						$("<td>").html(r.firstName),
+						$("<td>").html(r.lastName),
+						$("<td>").html(r.salary),
+						$("<td>").html($("<input>").attr({"type":"checkbox","id":r.emploeeId}))
+					); 
+					$table.append($tr);
+				})
+				$("#show").append($table);
+			},
+			error: function() {
+				console.log("error occurred.")
+			}
+		});
+		
+		// 입력처리.
+		$("#submit").on("click", function(){
+			$.ajax({
+				url: "empList.jsp",
+				data: {
+					firstName: $("[name='firstName']").val(),
+					lastName: $("[name='lastName']").val(),
+					email: $("[name='email']").val(),
+					hireDate: $("[name='hireDate']").val(),
+					jobId: $("[name='jobId']").val(),
+					salary: $("[name='salary']").val(),
+					action: $("#frm1").attr("action")
+				},
+				success: function(result){
+					var datas = result.trim();
+					console.log(datas);
+					$tr = $("<tr>").append(
+						$("<td>").html($("[name='firstName']").val()),
+						$("<td>").html($("[name='lastName']").val()),
+						$("<td>").html($("[name='salary']").val()),
+						$("<td>").html($("<input>").attr({"type":"checkbox", "id":datas}))
+					);
+					$("#tbl1").append($tr);
+					//입력값 초기화.
+					$("[name='firstName']").val("");
+					$("[name='lastName']").val("");
+					$("[name='email']").val("");
+					$("[name='hireDate']").val("2000-01-01");
+					$("[name='jobId']").val("IT_PROG");
+					$("[name='salary']").val(3000);
+					
+				},
+				error: function(result){
+					console.log(result);
+				}
+			});
+		});
+		
+		// 삭제처리
+		$("#del").on("click", function(){
+			$.map($("[type=checkbox]"), function(i, r) {
+				if($("[type=checkbox]").eq(r).is(":checked")){
+					//console.log($(i).attr("id"), r);
+					var empid = $(i).attr("id");
+					$.ajax({
+						url:"empList.jsp",
+						data:{
+							action:"delete",
+							empid:empid
+						},
+						success: function(result) {
+							console.log(result);
+							$("#"+empid).parent().parent().remove();
+						}
+					});
+				}
+			});
+		});
+		
+	});
+</script>
+</head>
+<body>
+	<form id="frm1" action="insert">
+		firstName:<input type="text" name="firstName" value="first"><br>
+		lastName:<input type="text" name="lastName" value="last"><br>
+		email:<input type="text" name="email" value="email"><br>
+		hireDate:<input type="text" name="hireDate" value="2010-01-01"><br>
+		jobId:<input type="text" name="jobId" value="IT_PROG"><br>
+		salary:<input type="text" name="salary" value=3000><br>
+		<input type="button" id="submit" value="OK"><br>
+	</form>
+	<div id="show"></div>
+	<button id="del">Del</button>
+</body>
+</html>
