@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@page import="java.sql.Connection" %>
-<%@page import="java.sql.DriverManager" %>
-<%@page import="java.util.*" %>
-<%@page import="employee.Employee" %>
-<%@page import="java.sql.PreparedStatement" %>
-<%@page import="java.sql.ResultSet" %>
-<%@page import="net.sf.json.JSONArray" %>
+	pageEncoding="UTF-8"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.util.*"%>
+<%@page import="employee.Employee"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="net.sf.json.JSONArray"%>
 <%
 	String jdbc_driver = "oracle.jdbc.driver.OracleDriver";
 	String jdbc_url = "jdbc:oracle:thin:@localhost:1521:orcl";
@@ -15,37 +15,37 @@
 	Connection conn = null;
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
-	
+
 	try {
 		Class.forName(jdbc_driver);
 		conn = DriverManager.getConnection(jdbc_url, user, passwd);
 	} catch (Exception e) {
 		e.printStackTrace();
 	}
-	
+
 	String action = request.getParameter("action");
 
 	String empId = "";
-	
-	if(action.equals("insert")) {
-		String sql = "select max(employee_id)+1 emp_id from employees";
+
+	if (action.equals("insert")) {
+		String sql = "select employees_seq.nextval emp_id from employees";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
-			if(rs.next()){
+			if (rs.next()) {
 				empId = rs.getString("emp_id");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		String firstName = request.getParameter("firstName");
 		String lastName = request.getParameter("lastName");
 		String salary = request.getParameter("salary");
 		String hireDate = request.getParameter("hireDate");
 		String jobId = request.getParameter("jobId");
 		String email = request.getParameter("email");
-		
+
 		sql = "insert into employees(employee_id, first_name, last_name, email, salary, hire_date, job_id) "
 				+ " values(?, ?, ?, ?, ?, to_date(?,'yyyy-mm-dd'), ?)";
 		try {
@@ -58,25 +58,28 @@
 			pstmt.setString(6, hireDate);
 			pstmt.setString(7, jobId);
 			int r = pstmt.executeUpdate();
-			if(r>0){
+			if (r > 0) {
 				out.print(empId);
-			}else{
+			} else {
 				out.print("no insert");
 			}
 
-		} catch(Exception e) {
+		} catch (Exception e) {
 			out.print("exception");
 			e.printStackTrace();
+
+		} finally {
+			conn.close();
 		}
-		
-	}else if (action.equals("select")) {
+
+	} else if (action.equals("select")) {
 		String sql = "select * from (select * from employees order by 1 desc) a where rownum < 10 order by 1";
 		List<Employee> list = new ArrayList<>();
 		try {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			Employee emp = null;
-			while(rs.next()){
+			while (rs.next()) {
 				emp = new Employee();
 				emp.setEmployeeId(rs.getInt("employee_id"));
 				emp.setFirstName(rs.getString("first_name"));
@@ -89,6 +92,9 @@
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+
+		} finally {
+			conn.close();
 		}
 		out.print(JSONArray.fromObject(list).toString());
 		/* out.print("[");
@@ -110,18 +116,20 @@
 		}
 		out.print("]"); */
 
-	} else if(action.equals("delete")){
+	} else if (action.equals("delete")) {
 		String sql = "delete from employees where employee_id = ?";
 		empId = request.getParameter("empid");
-		try{
+		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, empId);
 			int r = pstmt.executeUpdate();
 			out.print(r);
+
 		} catch (Exception e) {
 			e.printStackTrace();
+
+		} finally {
+			conn.close();
 		}
 	}
-	
-	
 %>
