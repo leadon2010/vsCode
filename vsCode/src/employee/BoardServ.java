@@ -24,7 +24,7 @@ public class BoardServ extends HttpServlet {
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
-		
+
 		PrintWriter out = response.getWriter();
 		String action = request.getParameter("action");
 		BoardDAO dao = new BoardDAO();
@@ -50,10 +50,11 @@ public class BoardServ extends HttpServlet {
 			board.setBoardNo(newBno);
 			board.setTitle(title);
 			board.setContent(content);
-			
-			if(dao.insertBoard(board)>0) {
+
+			if (dao.insertBoard(board) > 0) {
 				out.print(newBno);
-			};
+			}
+			;
 		}
 	}
 

@@ -16,7 +16,7 @@ public class BoardDAO {
 	
 	public int getNewBoard() {
 		conn = DAO.getConnection();
-		String sql = "select max(board_no)+1 board_no from board";
+		String sql = "select board_seq.nextval board_no from board";
 		int newBoardNo = 0;
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -33,7 +33,7 @@ public class BoardDAO {
 	public int insertBoard(BoardDTO board) {
 		conn = DAO.getConnection();
 		int r = 0;
-		String sql = "insert into board (board_no, title, content, writer, creation_date)"
+		String sql = "insert into board (board_no, title, content, writer, create_date)"
 				+ " values(?, ?, ?, 'test', sysdate)";
 		try {
 			pstmt = conn.prepareStatement(sql);
