@@ -33,6 +33,7 @@
                 }
             });
 
+            // 글 수정.
             function onupdate() {
                 console.log("update " + $(this).parent().parent().children().eq(0).text());
                 var boardNo = $(this).parent().parent().children().eq(0).text();
@@ -57,11 +58,12 @@
                 });
             }
 
+            // 글 변경.
             function updateRow() {
                 var $id = $(this).parent().parent().children().eq(0).text();
                 var $title = $(this).parent().parent().children().eq(1).children().eq(0).val();
                 var $content = $(this).parent().parent().children().eq(2).children().eq(0).val();
-                console.log($id + "," + $title + "," + $content);
+                console.log('val: ', $id + "," + $title + "," + $content);
                 $.ajax({
                     url: requestPage,
                     data: {
@@ -71,13 +73,18 @@
                         content: $content
                     },
                     success: function () {
-                        console.log();
+                        console.log("update", $('#'+$id).next());
+                        $('#'+$id).children().eq(1).text($title);
+                        $('#'+$id).children().eq(2).text($content);
+                        $('#'+$id).next().remove();
 
                     }
                 });
 
             }
 
+
+            // 글 삭제.
             function ondelete() {
                 console.log("delete " + $(this).html());
                 var boardNo = $(this).parent().parent().children().eq(0).text();
@@ -105,11 +112,6 @@
                     }
                 });
             })
-
-            // 글 수정.
-
-
-            // 글 삭제.
 
 
         });

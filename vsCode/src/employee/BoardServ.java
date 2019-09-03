@@ -21,7 +21,7 @@ public class BoardServ extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-//		response.getWriter().append("Served at: ").append(request.getContextPath());
+
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
 
@@ -54,7 +54,17 @@ public class BoardServ extends HttpServlet {
 			if (dao.insertBoard(board) > 0) {
 				out.print(newBno);
 			}
-			;
+
+		} else if (action.equals("update")) {
+			int boardNo = Integer.parseInt(request.getParameter("boardNo"));
+			String title = request.getParameter("title");
+			String content = request.getParameter("content");
+			BoardDTO board = new BoardDTO();
+			board.setBoardNo(boardNo);
+			board.setTitle(title);
+			board.setContent(content);
+			dao.updateBoard(board);
+
 		}
 	}
 

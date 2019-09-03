@@ -126,7 +126,7 @@ public class BoardDAO {
 				board.setTitle(rs.getString("title"));
 				board.setContent(rs.getString("content"));
 				board.setWriter(rs.getString("writer"));
-				board.setCreationDate(rs.getString("creation_date"));
+				board.setCreationDate(rs.getString("create_date"));
 				board.setParentNo(rs.getInt("parent_no"));
 			}
 		} catch (SQLException e) {
