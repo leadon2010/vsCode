@@ -65,6 +65,9 @@ public class BoardServ extends HttpServlet {
 			board.setContent(content);
 			dao.updateBoard(board);
 
+		} else if (action.equals("delete")) {
+			int boardNo = Integer.parseInt(request.getParameter("boardNo"));
+			dao.deleteBoard(boardNo);
 		}
 	}
 

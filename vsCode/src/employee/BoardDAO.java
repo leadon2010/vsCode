@@ -13,19 +13,26 @@ public class BoardDAO {
 	Connection conn = null;
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
-	
+
 	public int getNewBoard() {
+		System.out.println("getNewBoard call.");
 		conn = DAO.getConnection();
 		String sql = "select board_seq.nextval board_no from board";
 		int newBoardNo = 0;
 		try {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
-			if(rs.next()) {
+			if (rs.next()) {
 				newBoardNo = rs.getInt("board_no");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		return newBoardNo;
 	}
@@ -45,6 +52,12 @@ public class BoardDAO {
 
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		return r;
 	}
@@ -60,6 +73,12 @@ public class BoardDAO {
 
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 
 	}
@@ -77,6 +96,12 @@ public class BoardDAO {
 
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 
 	}

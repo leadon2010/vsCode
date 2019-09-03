@@ -88,6 +88,17 @@
             function ondelete() {
                 console.log("delete " + $(this).html());
                 var boardNo = $(this).parent().parent().children().eq(0).text();
+                $.ajax({
+                	url:requestPage,
+                	data:{action: "delete",
+                		boardNo: boardNo},
+                    success:function(){
+                    	console.log("deleted");
+                    	$('#'+boardNo).remove();
+                    },error:function(){
+                    	console.log("error");
+                    }
+                });
             }
 
             // 신규 글 등록.
@@ -103,10 +114,12 @@
                         var datas = result.trim();
                         console.log(datas);
                         $("#tab1").append(
-                            $("<tr>").append(
+                            $("<tr>").attr("id",datas).append(
                                 $("<td>").text(datas),
                                 $("<td>").text($("#title").val()),
-                                $("<td>").text($("#content").val())
+                                $("<td>").text($("#content").val()),
+                                $("<td>").html($("<button>").text("수정").click(onupdate)),
+                                $("<td>").html($("<button>").text("삭제").click(ondelete))
                             )
                         );
                     }
