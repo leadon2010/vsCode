@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 
 @WebServlet("/DataTableServ")
 public class DataTableServ extends HttpServlet {
@@ -31,6 +31,17 @@ public class DataTableServ extends HttpServlet {
 
 		if (action == null || action.equals("")) {
 			out.print("no action");
+
+		} else if (action.equals("insert2")) {
+			String title = request.getParameter("title");
+			String start = request.getParameter("start");
+			String end = request.getParameter("end");
+			DataTable dat = new DataTable();
+			dat.setTitle(title);
+			dat.setStartDate(start);
+			dat.setEndDate(end);
+			
+			dao.insertEvent(dat);
 
 		} else if (action.equals("insert")) {
 			System.out.println("insert call.");
