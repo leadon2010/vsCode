@@ -36,7 +36,15 @@ public class LoginService extends HttpServlet {
 			throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
 		out.println("hhhh");
-		request.getParameter("");
+		String id = request.getParameter("uname");
+		String passwd = request.getParameter("psw");
+
+		LoginDAO dao = LoginDAO.getInstance();
+		if (dao.memberCheck(id, passwd)) {
+			out.println("Welcome to Home");
+		} else {
+			out.println("Check id/ passwd");
+		}
 	}
 
 }
