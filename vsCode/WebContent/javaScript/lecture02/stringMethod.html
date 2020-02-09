@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript String object & method</title>
+</head>
+
+<body>
+    <script>
+        // length
+
+        // indexOf(), lastIndexOf(), -1(not found)
+        var str = "Please locate where 'locate' occurs!";
+        var pos = str.indexOf("locate");
+        console.log("pindexOf os : " + pos);
+
+        pos = str.lastIndexOf("locate");
+        console.log("lastIndexOf pos : " + pos);
+
+
+        // search() 
+        // The search() method searches a string for a specified value and returns the position of the match:
+        pos = str.search("locate");
+        console.log("pos = str.search => " + pos);
+
+        // slice(start, end), substring(start, end), substr(start, length)
+        var str = "Apple, Banana, Kiwi";
+        var res = str.slice(7, 13);
+
+
+        var str = "Apple, Banana, Kiwi";
+        var res = str.slice(-12, -6);
+
+        // replace(), toUpperCase(), toLowerCase(), concat(), trim(), 
+
+        // charAt(position), charCodeAt(position)
+        // he charAt() method returns the character at a specified index (position) in a string:
+        // The charCodeAt() method returns the unicode of the character at a specified index in a string:
+
+        // split : A string can be converted to an array with the split() method:
+        console.log("split ====================")
+        var txt = "a,b,c,d,e";
+        var ary = txt.split(",");
+        for (x of ary) {
+            console.log(x);
+        }
+
+
+    </script>
+</body>
+
+</html>
