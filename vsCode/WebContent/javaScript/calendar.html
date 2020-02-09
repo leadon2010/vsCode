@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar</title>
+</head>
+
+<body>
+    <script>
+        document.write("<table border='1'><tr>");
+        var day = 1;
+        for (var i = 0; i < 31; i++) {
+            document.write("<td>" + day + "</td>");
+            if (day++ % 7 == 0) {
+                document.write("</tr><tr>");
+            }
+        }
+        document.write("</tr></table>");
+    </script>
+</body>
+
+</html>

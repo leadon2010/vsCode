@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript DataType</title>
+</head>
+
+<body>
+    <script>
+        // String 
+        var str1 = "Hello";
+        var str2 = 'hello';
+        document.write(str1 + " <br> " + str2);
+        document.write("<br>typeof str1 => " + typeof str1);
+
+        // Number
+        var num1 = 34;
+        var num2 = 23.45;
+        document.write("<br>Sum: " + (num1 + num2));
+        document.write("<br>typeof num1 => " + typeof num1);
+
+        // Boolean
+        var x = 5;
+        var y = 6;
+        var z = (x == y);
+        document.write("<br>typeof z => " + typeof z);
+
+        // Arrays
+        console.log("====Arrays====")
+        var cars = ["Saab", "Volvo", "BMW"];
+        var nums = [1, 2, 3, 4, 5];
+        console.log("typeof cars => " + typeof cars);
+        console.log("cars[0]: " + cars[0]);
+        console.log("nums[3]: " + nums[3]);
+        for (x in cars) {
+            console.log(x + ", " + cars[x]);
+        }
+
+        // Objects
+        console.log("====Objects====")
+        var person = { firstName: "kildong", lastName: "Hong", age: 30 };
+        console.log("typeof person => " + typeof person);
+        console.log("firstName: " + person["firstName"]);
+        console.log("lastName: " + person.lastName);
+        for (x in person) {
+            console.log(x + " : " + person[x]);
+        }
+        console.log("=============================")
+
+        // Null & Undefined
+        var obj;
+        console.log("typeof obj => " + typeof obj);
+
+        obj = null;
+        console.log("typeof obj = null => " + typeof obj);
+
+
+    </script>
+</body>
+
+</html>
