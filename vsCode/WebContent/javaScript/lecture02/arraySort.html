@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array sorting, iteration</title>
+</head>
+
+<body>
+    <h2>JavaScript Array Sort</h2>
+
+    <p>Click the buttons to sort the array alphabetically or numerically.</p>
+
+    <button onclick="sortByString()">Sort Alphabetically</button>
+    <button onclick="sortByNumber()">Sort Numerically</button>
+    <button onclick="sortByRandom()">Sort Random</button>
+
+    <p id="demo"></p>
+
+    <script>
+        var fruits = ["Banana", "Orange", "Apple", "Mango"];
+        fruits.sort();
+        console.log(fruits.toString());
+        fruits.reverse();
+        console.log(fruits.toString());
+        console.log("=========================");
+
+        var points = [40, 100, 1, 5, 25, 10];
+        points.sort();
+        console.log(points.toString());
+        points.sort(function (a, b) {
+            return a - b;
+        })
+        console.log(points.toString());
+
+
+
+        // Compare function
+
+        document.getElementById("demo").innerHTML = points;
+
+        function sortByString() {
+            points.sort();
+            document.getElementById("demo").innerHTML = points;
+        }
+        function sortByNumber() {
+            points.sort(function (a, b) { return a - b });
+            document.getElementById("demo").innerHTML = points;
+        }
+        function sortByRandom() {
+            // random sorting
+            points.sort(function (a, b) {
+                return 0.5 - Math.random();
+            })
+            document.getElementById("demo").innerHTML = points;
+        }
+
+
+    </script>
+</body>
+
+</html>
