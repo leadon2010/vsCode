@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript object type</title>
+</head>
+
+<body>
+    <script>
+        var car = "sonata";
+
+        // properties, methods
+        car = {
+            type: "sedan",
+            model: "NF",
+            color: "white",
+            start: function () { console.log(this.type + ", " + this.model + " => start") },
+            stop: function () {
+                console.log("car stop...")
+            },
+            fullName: function () {
+                return this.type + ", " + this.model + ", " + this.color;
+            }
+        };
+
+        console.log(car.type);
+        console.log(car["model"]);
+
+        car.start();
+        car.stop();
+    </script>
+</body>
+
+</html>
