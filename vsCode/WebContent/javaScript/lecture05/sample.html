@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		window.onload = function () {
+			document.getElementById("selDan").addEventListener("change", process, false);
+			document.getElementById("del").addEventListener("click", delprocess, false);
+		}
+
+		function process() {
+			var sel = Number(frm.sel.options[frm.sel.selectedIndex].value);
+
+			//제목 추가
+			var col = addCol(sel + "단");
+			var row = document.createElement("tr");
+			row.appendChild(col);
+			document.getElementById("myTbody").appendChild(row);
+
+			for (var i = 1; i <= 9; i++) { //곱하기
+				addRow(sel, i);
+			}
+		}
+
+		function addRow(sel, i) { //<tr> 작업
+			var row = document.createElement("tr");
+			var col = addCol(sel + " * " + i + " = " + sel * i);
+			row.appendChild(col);
+
+			document.getElementById("myTbody").appendChild(row);
+		}
+
+		function addCol(data) {  //<td>작업
+			var col = document.createElement("td");
+			var text = document.createTextNode(data);
+			col.appendChild(text);
+			return col;
+		}
+
+		function delprocess() {  //삭제
+			var myTbody = document.getElementById("myTbody");
+			while (myTbody.childNodes.length > 0) {
+				myTbody.removeChild(myTbody.childNodes[0]);
+			}
+		}
+	</script>
+</head>
+
+<body>
+	<h2>구구단 출력</h2>
+	<form action="#" name="frm">
+		단 :
+		<select name="sel" id="selDan">
+			<option value="2">2단</option>
+			<option value="3">3단</option>
+			<option value="4">4단</option>
+			<option value="5">5단</option>
+			<option value="6">6단</option>
+			<option value="7">7단</option>
+			<option value="8">8단</option>
+			<option value="9">9단</option>
+		</select>
+		&nbsp;&nbsp;&nbsp;
+		<input type="button" value="삭제" id="del">
+	</form>
+	<br>
+	<table id="myTable">
+		<tbody id="myTbody"></tbody>
+	</table>
+</body>
+
+</html>
