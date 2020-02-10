@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="id01">My First Page</h1>
+    <p id="id02"></p>
+
+<script>
+        // document.getElementById("demo").innerHTML
+        // document.getElementById("demo").firstChild.nodeValue;
+        // document.getElementById("demo").childNodes[0].nodeValue;
+        // document.getElementById("id02").innerHTML = document.getElementById("id01").innerHTML;
+        // document.getElementById("id02").innerHTML = document.getElementById("id01").firstChild.nodeValue;
+        document.getElementById("id02").innerHTML = document.getElementById("id01").childNodes[0].nodeValue;
+        console.log(document.getElementById("id01").firstChild.nodeName);
+        console.log(document.getElementById("id01").firstChild.nodeType);
+        console.log(document.getElementById("id01").firstChild.nodeValue);
+        console.log(document.getElementById("id01").nodeName);
+        console.log(document.getElementById("id01").nodeType);
+        console.log(document.getElementById("id01").nodeValue);
+
+        console.log(document.body.innerHTML);
+        console.log(document.body.childNodes[1].firstChild.nodeValue);
+        console.log(document.body.childNodes[3].firstChild.nodeValue);
+
+    </script>
+</body>
+
+</html>

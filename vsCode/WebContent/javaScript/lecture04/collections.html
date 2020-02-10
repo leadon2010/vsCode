@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>JavaScript HTML DOM</h2>
+
+    <p>Hello World!</p>
+
+    <p>Hello Norway!</p>
+
+    <p id="demo"></p>
+
+    <script>
+        var myCollection = document.getElementsByTagName("p");
+        console.log(myCollection)
+
+        console.log(myCollection[0].childNodes[0].nodeName);
+        console.log(myCollection[0].childNodes[0].nodeType);
+        console.log(myCollection[0].childNodes[0].nodeValue);
+    </script>
+</body>
+
+</html>

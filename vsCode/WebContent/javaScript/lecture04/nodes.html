@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="div1">
+        <p id="p1">This is a paragraph.</p>
+        <p id="p2">This is another paragraph.</p>
+    </div>
+    <script>
+        // Creating New HTML Elements (Nodes)
+        var p = document.createElement("p");
+        var t = document.createTextNode("This is new paragraph");
+        p.appendChild(t);
+        document.getElementById("div1").appendChild(p);
+
+        // Creating new HTML Elements - insertBefore()
+        var p2 = document.createElement("p");
+        var t2 = document.createTextNode("This is before paragraph");
+        p2.appendChild(t2);
+        var child = document.getElementById("p1");
+        document.getElementById("div1").insertBefore(p2, child);
+
+        // Removing Existing HTML Elements
+        var elmnt = document.getElementById("p1");
+        // elmnt.remove();
+
+        // Removing a Child Node
+        var parent = document.getElementById("div1");
+        parent.removeChild(elmnt);
+
+        // Replacing HTML Elements 
+        var p3 = document.createElement("p");
+        var t3 = document.createTextNode("This is replace paragraph");
+        parent.appendChild(t3);
+        var elmnt2 = document.getElementById("p2");
+        parent.replaceChild(p3, elmnt2);
+
+
+
+    </script>
+</body>
+
+</html>
