@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script>
+        function turnOn(){
+        	document.getElementById('myImage').src = 'https://www.w3schools.com/js/pic_bulbon.gif;
+        }
+    </script>
+</head>
+
+<body>
+    <p id="demo">JavaScript can change HTML contents.</p>
+    <button onclick="document.getElementById('demo').innerHTML = 'Hello JavaScript!'">Click me!</button>
+    <br><br>
+<!--     <button onclick="document.getElementById('myImage').src = 'https://www.w3schools.com/js/pic_bulbon.gif'">
+        Turn on the light</button>
+ -->
+    <button onclick=turnOn()>turn on</button>
+     <img id="myImage" src="https://www.w3schools.com/js/pic_bulboff.gif" style="width:100px">
+    <button onclick="document.getElementById('myImage').src = 'https://www.w3schools.com/js/pic_bulboff.gif'">
+        Turn off the light</button>
+    <br><br>
+    <button onclick="document.getElementById('demo').style.fontSize = '35px'">Click to change CSS.</button>
+    <br><br>
+    <button onclick="document.getElementById('demo').style.display = 'none'">Click to hide Content.</button>
+</body>
+
+</html>

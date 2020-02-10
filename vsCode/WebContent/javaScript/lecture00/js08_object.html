@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+
+<body>
+    <script>
+        var car = {
+            name: "Fiat",
+            model: "500",
+            weight: "850kg",
+            color: "white",
+            start: function () {
+                console.log("start");
+            },
+            drive: function () {
+                console.log("drive");
+            },
+            brake: function () {
+                console.log("brake");
+            },
+            stop: function () {
+                console.log("stop");
+            },
+            fullName: function () {
+                return this.name + " " + this.model;
+            }
+        }
+
+        car.start();
+        car.drive();
+        car.stop();
+        console.log("Car name is " + car.name + ", weight is " + car["weight"]);
+        console.log(car.fullName());
+
+    </script>
+</body>
+
+</html>

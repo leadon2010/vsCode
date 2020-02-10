@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+
+<body>
+    <div id="show"></div>
+    <div id="arrow"></div>
+    <script>
+        function myFunction() {
+            return 3 + 5;
+        }
+
+        var cars = ['Saab', 'Volvo', 'BMW', 'Benz'];
+        for (var i = 0; i < cars.length;)
+            console.log(cars[i++]);
+        console.log("=====================================")
+
+        var flowers = new Array('sunflower', 'rose', 'lily', 'tulip');
+        var j = 0;
+        for (; j < flowers.length;) {
+            console.log(flowers[j++]);
+        }
+        console.log("=====================================")
+        flowers[0] = "moonflower";
+        var text = "<ul>";
+        for (var j = 0; j < flowers.length;) {
+            text += "<li>" + flowers[j++] + "</li>";
+        }
+        text += "</ul>";
+        document.getElementById('show').innerHTML = text;
+        console.log("=====================================")
+        var myArray = new Array();
+        myArray[0] = Date.now;
+        myArray[1] = myFunction;
+        myArray[2] = cars;
+        for (var k = 0; k < myArray.length; k++) {
+            console.log(myArray[k]);
+        }
+        myArray[3] = cars.sort();
+        console.log("=====================================")
+
+        for (var k = 0; k < myArray.length; k++) {
+            console.log(myArray[k]);
+        }
+        console.log("=====================================")
+
+        flowers.forEach(function (v, i) {
+            console.log(flowers[i])
+        });
+        console.log("===== arrow function ====")
+        var tag = "<table border=1>";
+            tag += "<tr><th>index</th><th>value</th></tr>";
+        flowers.forEach((v, i) => {
+            console.log(i, flowers[i]);
+            tag += "<tr><td>" + i + "</td><td>" + flowers[i] + "</td></tr>";
+        })
+        tag += "</table>";
+        document.getElementById("arrow").innerHTML = tag;
+        console.log("end::::::::::::::::::::::::")
+
+    </script>
+</body>
+
+</html>

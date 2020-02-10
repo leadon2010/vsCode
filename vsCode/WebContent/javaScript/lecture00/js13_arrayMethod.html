@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+
+<body>
+    <div id="show"></div>
+    <script>
+        // join(), toString(), 
+        var fruits = ["Banana", "Orange", "Apple", "Mango"];
+        document.getElementById("show").innerHTML = fruits.join("-").toString();
+        console.log("fruits: ", fruits);
+
+        var others = fruits; // same object..
+
+        console.log("others: ", others);
+
+        while (fruits.length) {
+            console.log(fruits.join(","));
+            fruits.pop();
+        }
+        console.log(others);
+
+        // pop(), push(), shift(), unshift()
+        var fruits = ["Banana", "Orange", "Apple", "Mango"];
+        fruits.push("Kiwi");
+        console.log(fruits);
+
+        // change array, add new element
+        fruits[0] = "Grape";
+        console.log(fruits);
+
+        fruits[fruits.length] = "Banana";
+        console.log(fruits);
+
+        // splice()
+        fruits.splice(2, 0, "Lemon", "Melon");
+        console.log(fruits);
+
+        fruits.splice(0, 1);
+        console.log(fruits);
+
+        // merge(concate())
+        var arr1 = ["Cecilie", "Lone"];
+        var arr2 = ["Emil", "Tobias", "Linus"];
+        var arr3 = ["Robin", "Morgan"];
+        var newArr = arr1.concat(arr2, arr3);
+        console.log(newArr);
+        newArr = newArr.concat("Charles");
+        newArr = newArr.concat(["Messi", "Ronaldo"]);
+        console.log(newArr);
+
+        var citrus = fruits.slice(1, 3);
+        console.log(citrus);
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+
+<body>
+    <script>
+        var txt = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        var sln = txt.length;
+        console.log(sln);
+
+        var str = "Please locate where 'locate' occurs!";
+        var pos = str.indexOf("locate"); // index 0.... if the text not found then return -1.
+        console.log(pos);
+
+        var str = "Please locate where 'locate' occurs!";
+        var pos = str.indexOf("locate", 15); // second parameter is the starting position for the search.
+        console.log(pos);
+
+        var str = "Please locate where 'locate' occurs!";
+        var pos = str.lastIndexOf("locate", 30);
+        console.log(pos);
+
+        var str = "Please locate where 'locate' occurs!";
+        var pos = str.search("locate");
+        console.log(pos);
+
+        // slice(start, end), substring(start, end), substr(start, length)
+
+        // replace(str, substitute)
+
+        // regular expression 
+
+        // toUpperCase(), toLowerCase()
+
+        // concat(), trim()
+
+        // charAt(posigion), charCodeAt(position), Property access []
+
+        // split() : converting String to an Array
+        var txt = "a, b, c, d, e";
+        txt.split(",");
+
+        var txt = "Hello";
+        txt.split("");
+        for (var i = 0; i < txt.length; i++) {
+            console.log(txt[i]);
+        }
+
+    </script>
+</body>
+
+</html>

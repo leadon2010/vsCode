@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+
+<body>
+    <div id="demo"></div>
+    <script>
+        function myFunction(p1, p2) {
+            return p1 * p2;
+        }
+        // var x = myFunction;
+        var y = function (a, b) {
+            return a + b;
+        }
+        document.getElementById("demo").innerHTML = myFunction(3, 4);
+        document.getElementById("demo").innerHTML = y(4, 4);
+
+        function toCelsius(f) {
+            return (5 / 9) * (f - 32);
+        }
+        var t = toCelsius(55);
+        document.getElementById("demo").innerHTML = t;  //toCelsius(50)
+
+        // localVariable 
+        var localVar = 35;
+        function localFunc() {
+            var localVar = 50;
+            console.log(localVar);
+        }
+        var v = localFunc();
+        console.log(localVar);
+    </script>
+</body>
+
+</html>

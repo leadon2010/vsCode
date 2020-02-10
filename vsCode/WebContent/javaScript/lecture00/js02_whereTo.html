@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script src="js02_out.js"></script>
+    <script>
+        function myFunc2() {
+            document.getElementById('myImage').src = 'https://www.w3schools.com/js/pic_bulbon.gif';
+        }
+
+        function myFunc3() {
+            document.getElementById('myImage').src = 'https://www.w3schools.com/js/pic_bulboff.gif';
+        }
+    </script>
+</head>
+
+<body>
+    <p id="demo">JavaScript can change HTML contents.</p>
+    <button onclick="myFunc1()">Click me!</button><br>
+    <br>
+    <button onclick="myFunc2()">Turn on the
+        light</button>
+    <img id="myImage" src="https://www.w3schools.com/js/pic_bulboff.gif" style="width:100px">
+    <button onclick="myFunc3()">Turn off
+        the light</button>
+    <br><br>
+    <button onclick="myFunc4()">Click to change CSS.</button>
+    <br><br>
+    <button onclick="myFunc5()">Click to hide Content.</button>
+
+    <script>
+        function myFunc1() {
+            document.getElementById('demo').innerHTML = 'Hello JavaScript!';
+        }
+    </script>
+</body>
+
+</html>

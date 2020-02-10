@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="cal"></div>
+    <script>
+
+        function getCal(y, m) {
+            var translatedMonth = m - 1;
+            var d = new Date(y, translatedMonth, 1);
+            var skipDay = d.getDay(); // 공란을 만들어주도록 해야하는 날의 수
+            var nextMonth = new Date(y, m, 0);
+            var lastDate = nextMonth.getDate();
+
+            var tag = "<table border=1>";
+            tag += "<tr><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thr</th><th>Fri</th><th>Sat</th></tr>";
+            var skip = 0;
+            tag += "<tr>";
+            // 월의 1일에 해당하는 위치를 정하도록 공란 생성.
+            for (; skip < skipDay; skip++) {
+                tag += "<td>" + "*" + "</td>"
+            }
+            // 공란 이후에 화면에 해당월의 갯수만큼 달력만들기. 그리고 일주일단위로 라인을 바꾸도록 한다.
+            for (var i = 1; i <= lastDate; i++) {
+                if ((skip + i) % 7 == 1) {
+                    tag += "<tr><td>" + i + "</td>";
+                } else {
+                    tag += "<td>" + i + "</td>";
+                    if ((skip + i) % 7 == 0) {
+                        tag += "</tr>";
+                    }
+                }
+            }
+            tag += "</table>";
+            document.getElementById("cal").innerHTML = tag;
+        }
+
+        getCal(2019, 11);
+
+    </script>
+</body>
+
+</html>

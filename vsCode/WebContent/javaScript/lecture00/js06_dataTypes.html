@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+
+<body>
+
+    <script>
+        var length = 16;  // number
+        var lastName = "Johnson"; // String
+        var x = { firstName: "John", age: 30 } // Object
+
+        var y = 16 + 4 + "String" + 5 + 15;
+        console.log(y);
+
+        y = "Sample";
+        y = 10;
+        console.log(y);
+
+        var i = 5;
+        var j = 5;
+        var k = 6;
+        console.log(i == j);
+        console.log(j == k);
+
+        // undefined vs. null
+        
+
+        // javaScript Array
+        var cars = ['Saab', 'Volvo', 'BMW'];
+        console.log(cars[0]);
+
+        // javaScript Object
+        var person = {
+            firstName: "John",
+            lastName: "Doe",
+            age: 30,
+            fullName: function() { firstName + " - " + lastName}
+        }
+        console.log("FirstName is " + person.firstName);
+
+        // javaScript function
+        function myFunction() {
+            console.log("function call.");
+        }
+        var t = myFunction();
+        console.log(typeof myFunction)
+
+    </script>
+</body>
+
+</html>

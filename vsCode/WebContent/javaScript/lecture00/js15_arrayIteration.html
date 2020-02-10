@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+
+<body>
+	<p id="demo"></p>
+	<script>
+		// Array.forEach()
+		var txt = "";
+		var numbers = [ 45, 4, 9, 16, 25 ];
+		//numbers.sort().forEach(myFunction);
+		//console.log(numbers.sort());
+		numbers.forEach(function(value, index, array) {
+			txt += value + "<br>";
+		});
+		document.getElementById("demo").innerHTML = txt;
+
+		function myFunction(value, index, array) {
+			txt += value + "<br>";
+		}
+
+		// Array.map()
+		var numbers1 = [ 45, 4, 9, 16, 25 ];
+		var numbers2 = numbers1.map(myFunc);
+		function myFunc(value, index, array) {
+			return value * 2;
+			//return value > 18;
+		}
+		console.log("map: " + numbers2);
+
+		// Array.filter()
+		var numbers3 = [ 45, 4, 9, 16, 25 ];
+		var over18 = numbers3.filter(myFilter);
+
+		function myFilter(value, index, array) {
+			return value > 18;
+		}
+		console.log("filter: " + over18);
+
+		// Array.reduce()
+		var numbers4 = [ 45, 4, 9, 16, 25 ];
+		var sum = numbers4.reduce(myReduce, 100);
+		function myReduce(total, value, index, array) {
+			//console.log(value);
+			return total + value;
+		}
+		console.log("reduce : " + sum);
+
+		// Array.reduceRight()
+		var sum1 = numbers4.reduceRight(myReduce);
+		console.log("reduceRight: " + sum1);
+
+		// Array.every()
+		var allOver18 = numbers4.every(myEvery);
+		function myEvery(value, index, array) {
+			return value > 18;
+		}
+		console.log("every: " + allOver18);
+
+		// Array.some()
+		var someOver18 = numbers4.some(myEvery);
+		console.log("some: " + someOver18);
+
+		// Array.indexOf()
+		var fruits = [ "Apple", "Orange", "Apple", "Mango", "Banana" ];
+		var a = fruits.indexOf("Mango");
+		console.log("indexOf: " + a);
+
+		// Array.lastIndexOf()
+		var fruits = [ "Apple", "Orange", "Apple", "Mango", "Banana" ];
+		var b = fruits.lastIndexOf("Mango");
+		console.log("lastIndexOf: " + b);
+
+		// Array.find()
+		var numbers5 = [ 45, 4, 9, 16, 25 ];
+		var c = numbers5.find(myFind);
+		function myFind(value, index, array) {
+			return value > 18;
+		}
+		console.log("find: " + c);
+
+		// Array.findIndex()
+		var numbers6 = [ 5, 4, 9, 16, 25 ];
+		var d = numbers6.findIndex(myIndex);
+		function myIndex(value, index, array) {
+			return value > 18;
+		}
+		console.log("findIndex: " + d);
+	</script>
+</body>
+
+</html>

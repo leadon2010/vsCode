@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script>
+		function func() {
+			document.getElementById("hello").innerText = "Welcome to World";
+		}
+	</script>
+</head>
+
+<body>
+	<h2 id="hello" onclick="func()">Hello, World</h2>
+	<script>
+		var h2 = document.getElementById('hello');
+		console.log(this);
+		h2.addEventListener("mouseover", function () {
+			h2.style.background = "red";
+		});
+		h2.addEventListener("mouseout", function () {
+			h2.style.background = "white";
+		});
+	</script>
+</body>
+
+</html>

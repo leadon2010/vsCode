@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+
+<body>
+    <div id="show1"></div>
+    <div id="show2"></div>
+    <button id="btn">Click</button>
+    <script>
+        // 1. In a method, this refers to the owner object.
+        var person = { firstName: "John", lastName: "Doe", age: 30, eyeColor: "blue" };
+        person.fullName = function() {
+            return "fullName is " + this.firstName + ", " + this.lastName;
+        }
+        document.getElementById("show1").innerText = person.fullName();
+
+        // 2. Alone, this refers to the global object.
+        var x = this;
+        console.log(x.location.href);
+
+        // 3. In a function, this refers to the global object.
+        function get_global(){
+            return this;
+        }
+        var g = get_global();
+        console.log(g);
+
+        // 4. In a function, in strict mode, this is undefined.
+        "use strict";
+        document.getElementById("show2").innerText = myFunction();
+        function myFunction() {
+            return this;
+        }
+        console.log(myFunction());
+
+        // 5. In an event, this refers to the element that received the event.
+        document.getElementById("btn").addEventListener("click", function() {
+            console.log(this);
+        })
+
+        // 6. Methods like call(), and apply() can refer this to any object.
+        var person1 = {
+            fullName: function() {
+                return this.firstName + " " + this.lastName;
+            }
+        }
+        var person2 = { 
+            firstName: "John",
+            lastName: "Doe",
+        }
+        console.log(person1.fullName.call(person2));
+    </script>
+
+</body>
+
+</html>

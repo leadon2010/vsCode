@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    table,
+    td {
+      border: 1px solid black;
+    }
+  </style>
+</head>
+
+<body>
+  <p>Click the button to add a new row at the first position of the table and then add cells and content.</p>
+  <table id="myTable">
+    <tr>
+      <td>Sun</td>
+      <td>Mon</td>
+      <td>Tue</td>
+      <td>Wed</td>
+      <td>Thu</td>
+      <td>Fri</td>
+      <td>Sat</td>
+    </tr>
+  </table>
+  <br>
+  <button onclick="myFunction()">Try it</button>
+  <script>
+    function myFunction() {
+      var table = document.getElementById("myTable");
+      var i, j;
+      var row, cell;
+      var cnt = 0;
+      var dday = new Date();
+      var lday = (new Date(dday.getFullYear(), dday.getMonth() + 1, 0)).getDate();
+      var fday = new Date(dday.getFullYear(), dday.getMonth(), 1);
+      console.log(fday.getDay());
+      row = table.insertRow();
+      for (var d = 0; d < fday.getDay(); d++) {
+        cell = row.insertCell();
+        cell.innerHTML = "*";
+        ++cnt;
+      }
+      for (j = 1; j <= lday; j++) {
+        ++cnt;
+        cell = row.insertCell();
+        cell.innerHTML = j;
+        if (cnt % 7 == 0) {
+          cell.style.color = "blue";
+          row = table.insertRow();
+        }
+        else if (cnt % 7 == 1)
+          cell.style.color = "red";
+      }
+    }
+  </script>
+</body>
+
+</html>

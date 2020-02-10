@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+
+<body>
+    <p id="time"></p>
+    <script>
+        var date = new Date();
+        date = new Date(2018, 4, 16);
+        date = new Date(2018, 11, 24, 10, 33, 30);
+        date = new Date("October 13, 2014 11:13:00");
+        // date = new Date(0);
+        document.getElementById("time").innerHTML = date.toUTCString(); // date.toDateString();
+    </script>
+</body>
+
+</html>
