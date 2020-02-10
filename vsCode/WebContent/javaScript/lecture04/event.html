@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Click the button to display the date.</p>
+
+    <button onclick="displayDate()">The time is 1</button>
+    <button id="myBtn">The time is 2</button>
+    <p id="show1"></p>
+    <p id="show2"></p>
+
+    <script>
+        function displayDate() {
+            document.getElementById("show1").innerHTML = Date();
+        }
+
+        var element = document.getElementById('myBtn');
+        element.onclick = function () {
+            document.getElementById("show2").innerHTML = Date();
+        }
+
+    </script>
+
+    Enter your name: <input type="text" id="fname" onchange="changeInput()">
+    your input: <input type="text" id="copy">
+    <script>
+        function changeInput() {
+            var elem = document.getElementById("fname");
+            var cp = document.getElementById("copy");
+            cp.value = elem.value;
+            // elem.value = elem.value.toUpperCase();
+        }
+
+    </script>
+
+</body>
+
+</html>

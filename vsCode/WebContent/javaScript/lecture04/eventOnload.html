@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body onload="checkCookies()">
+
+    <script>
+        function checkCookies() {
+            console.log(document.cookie);
+            var user = getCookie("username");
+            if (user != "") {
+                alert("Welcome to " + user);
+            } else {
+                user = prompt("Please enter your name: " , "user");
+                if (user != "" && user != null) {
+                    setCookie("username", user, 3);
+                }
+            }
+        }
+        function setCookie(cname, cvalue, exdays) {
+            var day = new Date();
+            day.setTime(day.getTime() + (exdays) * 1000 * 60 * 60 * 24);
+            var expires = "expires=" + day.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+        function getCookie(cname) {
+            var name = cname + "=";
+            var cary = document.cookie.split(";");
+            for (var i = 0; i < cary.length; i++) {
+                var c = cary[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Finding HTML Elements by Tag Name</h2>
+
+    <div id="main">
+        <p class="intro">The DOM is very useful.</p>
+        <p class="intro">This example demonstrates the <b>getElementsByTagName</b> method.</p>
+        <div class="intro">This class intro is class in div</div>
+    </div>
+
+    <p id="show"></p>
+    <script>
+        var x = document.getElementById("main");
+        var y = x.getElementsByTagName("p");
+        // document.getElementById("show").innerHTML = "first p element is p[0] is " + y[0].innerHTML;
+        // document.getElementById("show").innerHTML = "second p element is p[1] is " + y[1].innerHTML; // innerText
+
+        var z = document.getElementsByClassName("intro");
+        document.getElementById("show").innerHTML = "first p element is p[0] is " + z[0].innerHTML;
+        // document.getElementById("show").innerHTML = "second p element is p[1] is " + [1].innerHTML; // innerText
+        document.getElementById("show").innerHTML = "first p element is p[2] is " + z[2].innerHTML;
+
+
+        var s = document.querySelectorAll("p.intro");
+        console.log(s[0]);
+        console.log(s[1]);
+        // for (i of s) {
+            // console.log(i);
+        // }
+    </script>
+
+</body>
+
+</html>

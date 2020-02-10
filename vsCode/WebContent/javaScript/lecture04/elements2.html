@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Finding HTML Elements Using document.forms</h2>
+
+    <form id="frm1" action="/action_page.php">
+        First name: <input type="text" name="fname" value="Donald"><br>
+        Last name: <input type="text" name="lname" value="Duck"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <p>Click "Try it" to display the value of each element in the form.</p>
+
+    <button onclick="myFnc()">Try it</button>
+
+    <p id="demo"></p>
+
+    <script>
+        function myFnc() {
+            var frms = document.forms["frm1"];
+            var text = "";
+
+            for (var i = 0; i < frms.length; i++) {
+                text += frms.elements[i].value + "<br>";
+                console.log("name: " + frms.elements.item(i).name + ", value: " + frms.elements.item(i).value);
+            }
+            for (var i = 0; i < frms.length; i++) {
+                console.log(frms.elements.namedItem(frms.elements[i].name));
+            }
+            document.getElementById("demo").innerHTML = text;
+
+        }
+    </script>
+</body>
+
+</html>
