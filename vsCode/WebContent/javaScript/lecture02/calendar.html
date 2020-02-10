@@ -9,11 +9,39 @@
 
 <body>
     <script>
+        function getMyDate(year, month) {
+            switch (month) {
+                case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+                    return 31;
+                case 4: case 6: case 9: case 11:
+                    return 30;
+                case 2:
+                    if (year % 400 == 0 || (year % 400 == 0 && year % 100 != 0)) {
+                        return 29;
+                    } else {
+                        return 28;
+                    }
+            }
+        }
+
+        var cal = new Date("2020/1/1");
+        var year, month, date, day;
+        year = cal.getFullYear();
+        month = cal.getMonth();
+        day = cal.getDay();
+        console.log("year: " + year + ", month: " + month + ", day: " + day);
+        dates = getMyDate(year, month + 1);
+        console.log(dates);
+
+        document.write(year + "년 " + (month + 1) + "월 달력");
         document.write("<table border='1'><tr>");
-        var day = 1;
-        for (var i = 0; i < 31; i++) {
-            document.write("<td>" + day + "</td>");
-            if (day++ % 7 == 0) {
+        var days = 1;
+        for (var i = 0; i < day; i++) {
+            document.write("<td></td>");
+        }
+        for (var i = 0; i < dates; i++) {
+            document.write("<td>" + days + "</td>");
+            if ((day + days++) % 7 == 0) {
                 document.write("</tr><tr>");
             }
         }
