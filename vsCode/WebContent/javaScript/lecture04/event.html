@@ -28,7 +28,7 @@
     </script>
 
     Enter your name: <input type="text" id="fname" onchange="changeInput()">
-    your input: <input type="text" id="copy">
+    your input: <input type="text" id="copy"><br><br>
     <script>
         function changeInput() {
             var elem = document.getElementById("fname");
@@ -39,6 +39,32 @@
 
     </script>
 
+    <div onmouseover="onMover(this)" onmouseout="onMout(this)">Mouse Over Me</div>
+    <script>
+        var d = document.getElementsByTagName("div");
+        d[0].style.width = "120px";
+        d[0].style.height = "20px";
+        d[0].style.padding = "40px";
+        d[0].style.backgroundColor = "cyan";
+
+        function onMover(obj) {
+            console.log(obj);
+            obj.innerHTML = "Thank you";
+            obj.style.backgroundColor = "yellow";
+            // obj.style.width = "120px";
+            // obj.style.height = "20px";
+            // obj.style.padding = "40px";
+        }
+        function onMout(obj) {
+            console.log(obj);
+            obj.innerHTML = "Mouse Over Me";
+            obj.style.backgroundColor = "red";
+            // obj.style.width = "120px";
+            // obj.style.height = "20px";
+            // obj.style.padding = "40px";
+        }
+
+    </script>
 </body>
 
 </html>

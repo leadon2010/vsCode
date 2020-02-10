@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Input value: <input type="text" id="fname" name="fname">
+    <button id="myBtn">Click</button>
+
+    <script>
+        function focusFunc(obj) {
+            console.log(obj.target.id);
+            var id = obj.target.id;
+            document.getElementById(id).style.backgroundColor = "yellow";
+        }
+        function blurFunc(obj) {
+            console.log(obj.target.id);
+            var id = obj.target.id;
+            document.getElementById(id).style.backgroundColor = "";
+        }
+        var fn = document.getElementById("fname");
+        // console.log(fn)
+        fn.addEventListener("focus", focusFunc);
+        fn.addEventListener("blur", blurFunc);
+
+        var btn = document.getElementById('myBtn');
+        btn.addEventListener("click", clickFnc);
+        btn.addEventListener("mouseover", mouseoverFnc);
+        btn.addEventListener("mouseout", mouseoutFnc);
+        function clickFnc() {
+            var inputValue = document.getElementById("fname").value;
+            window.alert(inputValue);
+        }
+
+    </script>
+</body>
+
+</html>
