@@ -1,23 +1,76 @@
 <!DOCTYPE html>
 <html>
 
-<body>
-    <p id="demo"></p>
+<head>
     <script>
-    window.resizeTo(alert("h"));
+        function openWin() {
+            window.open("https://www.w3schools.com");
+        }
+        function openWin1() {
+            window.open("https://www.w3schools.com", "_blank", "toolbar=yes, location=yes, directories=yes, status=yes, menubar=yes, scrollbars=yes, resizable=no, copyhistory=yes, width=400, height=400");
+        }
+        var myWindow;
+        function openWin2() {
+            myWindow = window.open("https://www.w3schools.com", "_blank", "width=600, height=600");
+            myWindow.blur();
+        }
+        function blurWin() {
+            myWindow.blur();
+        }
+        function focusWin() {
+            myWindow.focus();
+        }
+        function closeWin() {
+            myWindow.close();
+        }
+        function checkWin() {
+            msg = ""
+            if (!myWindow) {
+                msg = "was never opened";
+            } else {
+                if (myWindow.closed) {
+                    msg = "is closed";
+                } else {
+                    msg = "is open";
+                }
 
-    function winsize() {
-        var w = window.innerWidth ||
-            document.documentElement.clientWidth ||
-            document.body.clientWidth;
+            }
+            document.getElementById("msg").innerHTML =
+                "myWindow " + msg;
+        }
+        function printPage() {
+            window.print();
+        }
+    </script>
+</head>
 
-        var h = window.innerHeight ||
-            document.documentElement.clientHeight ||
-            document.body.clientHeight;
+<body>
+    <input type="button" value="Open Window" onclick="openWin()">
+    <input type="button" value="Open Window" onclick="openWin1()"><br>
 
-        var x = document.getElementById("demo");
-        x.innerHTML = "Browser inner window width: " + w + ", height: " + h + ".";
-    };
+    <input type="button" value="Open new window" onclick="openWin2()">
+    <input type="button" value="Blur new window" onclick="blurWin()">
+    <input type="button" value="Focus new window" onclick="focusWin()">
+    <button onclick="checkWin()">Is myWindow open?</button>
+    <input type="button" value="Close 'myWindow'" onclick="closeWin()" />
+    <input type="button" value="Print this page" onclick="printPage()" />
+
+    <p id="msg"></p>
+    <script>
+        // window.resizeTo(alert("h"));
+
+        function winsize() {
+            var w = window.innerWidth ||
+                document.documentElement.clientWidth ||
+                document.body.clientWidth;
+
+            var h = window.innerHeight ||
+                document.documentElement.clientHeight ||
+                document.body.clientHeight;
+
+            var x = document.getElementById("demo");
+            x.innerHTML = "Browser inner window width: " + w + ", height: " + h + ".";
+        };
     </script>
 </body>
 
