@@ -5,6 +5,6 @@
 	String fname = request.getParameter("fname");
 	String lname = request.getParameter("lname");
 
-	PrintWriter p = response.getWriter();
-	p.println("fname is " + fname + ", lname is " + lname);
+	//PrintWriter p = response.getWriter();
+	out.println("fname is " + fname + ", lname is " + lname);
 %>

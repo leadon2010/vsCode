@@ -10,7 +10,7 @@
 	function deptList(){
 		xhr = new XMLHttpRequest();
 		xhr.onreadystatechange = deptListCallback;
-		xhr.open("GET", "./server/deptControl.jsp?action=listjson");
+		xhr.open("GET", "./deptControl.jsp?action=listjson");
 		xhr.send();
 	};
 	function deptListCallback(){
