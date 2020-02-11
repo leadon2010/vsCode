@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="demo">
+        <h2>The XMLHttpRequest Object</h2>
+        <button type="button" onclick="loadDoc()">Change Content</button>
+    </div>
+    <script>
+        function loadDoc() {
+            var xhtp = new XMLHttpRequest();
+            xhtp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById('demo').innerHTML = this.responseText;
+                }
+            }
+            xhtp.open("get", 'ajax_info.txt', true);
+            xhtp.send();
+        }
+        // Holds the status of the XMLHttpRequest.
+        // 0: request not initialized
+        // 1: server connection established
+        // 2: request received
+        // 3: processing request
+        // 4: request finished and response is ready
+        
+        // Returns the status-number of a request
+        // 200: "OK"
+        // 403: "Forbidden"
+        // 404: "Not Found"        
+    </script>
+</body>
+
+</html>
