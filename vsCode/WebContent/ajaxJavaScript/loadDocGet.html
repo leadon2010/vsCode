@@ -14,7 +14,10 @@
 			var xhttp = new XMLHttpRequest();
 			xhttp.onreadystatechange = function () {
 				if (xhttp.readyState == 4 && xhttp.status == 200) {
-					document.getElementById("demo").innerHTML = xhttp.responseText;
+					var result;
+					result = this.getAllResponseHeaders();
+					// result = xhttp.responseText;
+					document.getElementById("demo").innerHTML = result;
 				}
 			};
 			//console.log(xhttp.onreadystatechange);
