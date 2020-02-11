@@ -1,19 +1,16 @@
 <!DOCTYPE html>
 <html>
+
 <body>
 
 	<h2>The XMLHttpRequest Object</h2>
 
 	<h3>Start typing a name in the input field below:</h3>
 
-	<p>
-		Suggestions: <span id="txtHint"></span>
-	</p>
-
-	<p>
-		First name: <input type="text" id="txt1" onkeyup="showHint(this.value)">
-	</p>
-
+	<p> First name: <input type="text" id="txt1" onkeyup="showHint(this.value)"> </p>
+	
+	<p> Suggestions: <span id="txtHint"></span> </p>
+	
 	<script>
 		function showHint(str) {
 			var xhttp;
@@ -22,7 +19,7 @@
 				return;
 			}
 			xhttp = new XMLHttpRequest();
-			xhttp.onreadystatechange = function() {
+			xhttp.onreadystatechange = function () {
 				if (this.readyState == 4 && this.status == 200) {
 					document.getElementById("txtHint").innerHTML = this.responseText;
 				}
@@ -33,4 +30,5 @@
 	</script>
 
 </body>
+
 </html>
