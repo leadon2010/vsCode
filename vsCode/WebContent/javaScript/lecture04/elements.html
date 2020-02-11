@@ -16,6 +16,8 @@
         <div class="intro">This class intro is class in div</div>
     </div>
 
+    <p id="intro">The DOM is very useful except div</p>
+
     <p id="show"></p>
     <script>
         var x = document.getElementById("main");
@@ -29,12 +31,12 @@
         document.getElementById("show").innerHTML = "first p element is p[2] is " + z[2].innerHTML;
 
 
-        var s = document.querySelectorAll("p.intro");
-        console.log(s[0]);
-        console.log(s[1]);
-        // for (i of s) {
-            // console.log(i);
-        // }
+        var s = document.querySelectorAll("div p");
+        // console.log(s[0]);
+        // console.log(s[1]);
+        for (i of s) {
+            console.log(i);
+        }
     </script>
 
 </body>

@@ -15,6 +15,39 @@
                 console.log(o);
             }
         })
+
+        var $table = document.createElement("table");
+        $table.setAttribute("border",1);
+        var $tr = document.createElement("tr");
+        // name, age
+        var $td = document.createElement("td");
+        var $text = document.createTextNode("name");
+        $td.appendChild($text);
+        $tr.appendChild($td);
+
+        $td = document.createElement("td");
+        $text = document.createTextNode("age");
+        $td.appendChild($text);
+        $tr.appendChild($td);
+
+        $table.appendChild($tr);
+        
+        // 이름, 나이.
+        $tr = document.createElement("tr");
+        $td = document.createElement("td");
+        $text = document.createTextNode("이창호");
+        $td.appendChild($text);
+        $tr.appendChild($td);
+
+        $td = document.createElement("td");
+        $text = document.createTextNode("49");
+        $td.appendChild($text);
+        $tr.appendChild($td);
+
+        $table.appendChild($tr);
+
+        document.body.appendChild($table);
+
     </script>
 </body>
 
