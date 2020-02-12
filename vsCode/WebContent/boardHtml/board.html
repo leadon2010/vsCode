@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+
+<body onload="showBoard()">
+
+    <script>
+        function showBoard() {
+            var xhtp = new XMLHttpRequest();
+            xhtp.onreadystatechange = function () {
+                if (xhtp.readyState == 4 && xhtp.status == 200) {
+                    getBoard(this);
+                }
+            }
+            xhtp.open('get', '../BoardServlet');
+            xhtp.send();
+        }
+        function getBoard(obj) {
+            var result = JSON.parse(obj.responseText);
+            console.log(result);
+        }
+    </script>
+</body>
+
+</html>

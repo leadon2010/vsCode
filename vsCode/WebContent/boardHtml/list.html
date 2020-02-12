@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title> board list </title>
+</head>
+
+<body onload="showList()">
+    <p id="list"></p>
+    <script>
+        var list = document.getElementById("list");
+        var titles = ["게시글번호", "제목", "작성자", "작성일자"];
+        var titlee = ["boardNo", "title", "writer", "createDate"];
+
+        function showList() {
+            var xhtp = new XMLHttpRequest();
+            xhtp.onreadystatechange = function () {
+                if (xhtp.readyState == 4 && xhtp.status == 200) {
+                    getBoardList(this);
+                }
+            }
+            xhtp.open('get', '../BoardListServlet');
+            xhtp.send();
+        }
+        function getBoardList(obj) {
+            var result = JSON.parse(obj.responseText);
+            console.log(result);
+            var $table, $tr, $td, $text;
+            $table = document.createElement("table");
+            $tr = document.createElement("tr");
+            for (x of titles) {
+                $text = document.createTextNode(x);
+                $td = document.createElement("td");
+                $td.setAttribute("align", "center");
+                $td.appendChild($text);
+                $tr.appendChild($td);
+            }
+            $table.appendChild($tr);
+            for (idx in result) {
+                $tr = document.createElement("tr");
+                for (field of titlee) {
+                    $text = document.createTextNode(result[idx][field]);
+                    $td = document.createElement("td");
+                    $td.setAttribute("align", "center");
+                    if (field == "title") {
+                        $a = document.createElement("a");
+                        $a.setAttribute("href", "board.jsp?boardNo="+2);
+                        $a.appendChild($text);
+                        $td.appendChild($a);
+                    } else {
+                        $td.appendChild($text);
+                    }
+                    $tr.appendChild($td);
+                }
+                $table.appendChild($tr);
+            }
+            list.appendChild($table);
+        }
+
+    </script>
+</body>
+
+</html>
