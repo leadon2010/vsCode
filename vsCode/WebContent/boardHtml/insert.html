@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 350px;
+            height: 20px;
+            position: relative;
+        }
+
+        .content {
+            width: 350px;
+            height: 120px;
+        }
+    </style>
+    <script>
+        function validateForm() {
+            var frm = document.forms["myForm"];
+            var invalidCnt = 0;
+            for (i in frm) {
+                //console.log(frm.elements[i].name);
+                if (frm.elements[i].value == "") {
+                    //alert(frm.elements[i].name + " is invalid");
+                    //console.log(frm.elements[i].name)
+                    console.log(document.getElementById(frm.elements[i].name));
+                    text = document.createTextNode("invalid");
+                    $p = document.createElement("p");
+                    $p.appendChild(text);
+                    document.getElementById(frm.elements[i].name).value = "invalid value";
+                    invalidCnt++;
+                    return false;
+                }
+            }
+            if (invalidCnt != 0) {
+                return false;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <form name="myForm" action="../InsertBoardServl" onsubmit="return validateForm()" method="post">
+        <input type="hidden" name="writer" value="user1">
+        <table>
+            <tr>
+                <td> Title</td>
+                <td> <input type="text" id="title" name="title" autofocus></td>
+            </tr>
+            <tr>
+                <td>Content</td>
+                <td> <textarea rows="10" cols="40" id="content" name="content"></textarea></td>
+            </tr>
+            <tr align="center">
+                <td colspan="2">
+                    <input onclick="validateForm()" type="submit" formmethod="post" value="Submit">
+                    <input type="reset" value="Reset">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>
