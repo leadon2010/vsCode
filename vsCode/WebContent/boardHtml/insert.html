@@ -19,6 +19,7 @@
     </style>
     <script>
         function validateForm() {
+            var warn = document.getElementById("warn");
             var frm = document.forms["myForm"];
             var invalidCnt = 0;
             for (i in frm) {
@@ -27,16 +28,10 @@
                     //alert(frm.elements[i].name + " is invalid");
                     //console.log(frm.elements[i].name)
                     console.log(document.getElementById(frm.elements[i].name));
-                    text = document.createTextNode("invalid");
-                    $p = document.createElement("p");
-                    $p.appendChild(text);
-                    document.getElementById(frm.elements[i].name).value = "invalid value";
                     invalidCnt++;
+                    warn.innerHTML = frm.elements[i].name + " invalid value";
                     return false;
                 }
-            }
-            if (invalidCnt != 0) {
-                return false;
             }
         }
     </script>
@@ -45,6 +40,7 @@
 <body>
     <form name="myForm" action="../InsertBoardServl" onsubmit="return validateForm()" method="post">
         <input type="hidden" name="writer" value="user1">
+        <p id="warn" style="color:blue"></p>
         <table>
             <tr>
                 <td> Title</td>

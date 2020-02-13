@@ -34,6 +34,20 @@ public class BoardDAO {
 		return dao;
 	}
 
+	public void insertBoard(Board brd) {
+		String sql = "insert into board values((select max(nvl(board_no,0)) + 1 from board), ?, ?, ?, sysdate, null)";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, brd.getTitle());
+			pstmt.setString(2, brd.getContent());
+			pstmt.setString(3, brd.getWriter());
+			int r = pstmt.executeUpdate();
+			System.out.println(r + " 건 입력됨.");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
 	public List<Board> getBoardList() {
 		String sql = "select * from board where parent_no is null order by 1";
 		List<Board> list = new ArrayList<>();

@@ -20,16 +20,26 @@ public class InsertBoardServl extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		service(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		doGet(request, response);
+		service(request, response);
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		String writer = request.getParameter("writer");
+		String title = request.getParameter("title");
+		String content = request.getParameter("content");
 
+		BoardDAO dao = BoardDAO.getInstance();
+		Board brd = new Board();
+		brd.setTitle(title);
+		brd.setContent(content);
+		brd.setWriter(writer);
+
+		dao.insertBoard(brd);
 	}
 }
