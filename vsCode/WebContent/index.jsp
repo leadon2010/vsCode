@@ -8,7 +8,11 @@
     <title>Document</title>
 </head>
 <body>
-    <%
-    %>
+	<%
+		String fname = request.getParameter("fname");
+		String lname = request.getParameter("lname");
+	%>
+	<h1>fName : <%=fname %></h1>
+	<h1>lName : <%=lname %></h1>
 </body>
 </html>
