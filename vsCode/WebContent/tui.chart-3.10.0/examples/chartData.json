@@ -1,28 +1,28 @@
 {
 	"data": [
 		{
-			"debit": 5500,
-			"budget": 8500
+			"Budget": 5500,
+			"Income": 8500
 		},
 		{
-			"debit": 3500,
-			"budget": 1500
+			"Budget": 3500,
+			"Income": 1500
 		},
 		{
-			"debit": 5500,
-			"budget": 7500
+			"Budget": 5500,
+			"Income": 7500
 		},
 		{
-			"debit": 7500,
-			"budget": 2500
+			"Budget": 7500,
+			"Income": 2500
 		},
 		{
-			"debit": 6500,
-			"budget": 5500
+			"Budget": 6500,
+			"Income": 5500
 		},
 		{
-			"debit": 4500,
-			"budget": 3500
+			"Budget": 4500,
+			"Income": 3500
 		}
 	]
 }
