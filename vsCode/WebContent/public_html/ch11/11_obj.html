@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html>
+<body>
+    <p id="d1"></p>
+    <p id="d2"></p>
+    <p id="d3"></p>
+    <p id="d4"></p>
+    <script>
+        // 기본 생성자
+        document.getElementById("d1").innerHTML = new Date();
+        // 1970.01.01 이후의 밀리초 계산
+        document.getElementById("d2").innerHTML = new Date(1491803527400);
+        // 문자열 날짜
+        document.getElementById("d3").innerHTML=new Date("October 15, 2018 06:18:07");    
+        // 주의사항 : 월(month)은 0부터 시작
+        // 날짜 지정
+        document.getElementById("d4").innerHTML=new Date(2018, 11, 25, 18, 30, 29);   
+    </script>
+</body>
+</html>
