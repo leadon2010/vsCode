@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        td, th {
+            border: 1px solid red;
+        }
+        #tb1 {
+            border: 2px solid green;
+            border-spacing: 10px;    /* 상하좌우 */
+        }
+        #tb2 {
+            border: 3px solid maroon;
+            background-color: aqua;
+            border-spacing: 20px 40px;    /* 첫번째 값: 좌우, 두번째 값: 상하 */
+        }
+    </style>
+</head>
+<body>
+    <table style id="tb1" width="350px">
+        <tr>
+            <th>table border-spacing</th> 
+            <td>10px</td>
+        </tr>
+    </table>
+    <p></p>
+    <table style id="tb2" width="350px">
+        <tr>
+            <th>table border-spacing</th> 
+            <td>20px 40px</td>
+        </tr>
+    </table>
+</body>
+</html>
