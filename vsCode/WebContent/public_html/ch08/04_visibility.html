@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <style>
+ 	    .v1 { 
+             visibility: hidden; 
+	         border: 1px dotted red; 
+ 	    }
+	    .v2 { 
+            visibility: visible;    
+	        border: 1px dotted red;
+  	    }
+        .v3 { 
+          display: none; 
+	      border: 1px dotted red; 
+        }
+    </style>
+</head>
+<body>
+    <div class="v1"> <!-- 보이지 않도록 설정: 공간 있음 -->
+        <img src="pic1.jpg">
+    </div>
+	<div class="v2">
+        <img src="pic1.jpg">
+    </div>
+	<div class="v3"> <!-- 보이지 않도록 설정: 공간 삭제 -->
+        <img src="pic1.jpg">
+    </div>
+    <div class="v2">
+        <img src="pic1.jpg">
+    </div>
+</body>
+</html>
