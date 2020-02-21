@@ -27,6 +27,19 @@
     <footer>
         <small>사이트 정보 표시</small>
     </footer>
+    <button id="showImg">Click</button>
+    <img id="img" src="../images/window1.jpg" width="90%" height="80%">
+    <script>
+        var btn = document.getElementById("showImg");
+        btn.onclick = showImg;
+        var i = 1;
+        function showImg() {
+            if (i == 11) {
+                i = 1;
+            }
+            document.getElementById('img').src = "../images/img" + i++ + ".jpg";
+        }
+    </script>
 </body>
 
 </html>
