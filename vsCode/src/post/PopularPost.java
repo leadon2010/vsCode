@@ -7,6 +7,15 @@ public class PopularPost {
 	private String postImage;
 	private String creationDate;
 	private String lastUpdateDate;
+	private int postCnt;
+
+	public int getPostCnt() {
+		return postCnt;
+	}
+
+	public void setPostCnt(int postCnt) {
+		this.postCnt = postCnt;
+	}
 
 	public int getPostId() {
 		return postId;

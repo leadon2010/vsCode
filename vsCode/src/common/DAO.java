@@ -2,6 +2,7 @@ package common;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class DAO {
 	static Connection conn = null;
@@ -20,6 +21,16 @@ public class DAO {
 			e.printStackTrace();
 		}
 		return conn;
+	}
+
+	public static void disconnect() {
+		if (conn != null) {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 
 }
