@@ -16,6 +16,7 @@
 		LoginDAO dao = LoginDAO.getInstance();
 		if (dao.memberCheck(id, passwd)) {
 			session.setAttribute("userId", id);
+			pageContext.forward("css/layout.html");
 		} else {
 			response.sendRedirect("index.html");
 		}
