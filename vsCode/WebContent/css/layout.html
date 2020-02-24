@@ -2,6 +2,9 @@
 <html>
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>layout.html</title>
     <link rel="stylesheet" href="css/myWebSite.css">
     <style>
 
@@ -50,17 +53,11 @@
                 <div class="fakeimg" style="height:100px;">Image</div>
                 <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
             </div>
-            <div class="card">
+            <div class="card" id="contents">
                 <h3>Popular Post</h3>
-                <div class="fakeimg">
+                <!-- <div class="fakeimg">
                     <p><img src="./images/img1.jpg" style="width: 100%; height: 100%;"></p>
-                </div>
-                <div class="fakeimg">
-                    <p>Image</p>
-                </div>
-                <div class="fakeimg">
-                    <p>Image</p>
-                </div>
+                </div> -->
             </div>
             <div class="card">
                 <h3>Follow Me</h3>
@@ -76,11 +73,30 @@
         var xhtp = new XMLHttpRequest();
         xhtp.onreadystatechange = function () {
             if (xhtp.readyState == 4 && xhtp.status == 200) {
-                console.log(xhtp);
+                getPopularPost(this);
             }
         }
-        xhtp.open("get", "", true);
+        xhtp.open("get", "GetPopularPostServ", true);
         xhtp.send();
+
+        var contents = document.getElementById("contents");
+
+        function getPopularPost(arg) {
+            var result = JSON.parse(arg.response);
+            console.log(result);
+            var $img, $p, $div;
+            for (x of result) {
+                $img = document.createElement("img");
+                $img.setAttribute("src", "./" + x.postImage);
+                $img.setAttribute("style", "width:100%; height:100%;");
+                $p = document.createElement("p");
+                $p.appendChild($img);
+                $div = document.createElement("div");
+                $div.setAttribute("class", "fakeimg");
+                $div.appendChild($p);
+                contents.appendChild($div);
+            }
+        }
     </script>
 
 </body>
