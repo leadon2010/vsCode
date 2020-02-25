@@ -1,0 +1,1157 @@
+body {
+    color: #333;
+    font-size: 12px;
+    line-height: 18px;
+    font-family: "돋움", Dotum, AppleGothic, sans-serif
+}
+
+body,
+form,
+fieldset,
+p,
+ol,
+ul,
+li,
+dl,
+dt,
+dd {
+    margin: 0;
+    padding: 0
+}
+
+ol,
+ul,
+li {
+    list-style: none
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+select,
+input {
+    color: #333;
+    font-size: 12px;
+    font-family: "돋움", Dotum, AppleGothic, sans-serif;
+    margin: 0;
+    padding: 0
+}
+
+img,
+fieldset {
+    border: none
+}
+
+legend {
+    display: none
+}
+
+a {
+    text-decoration: none;
+    color: #333
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #4f87c7
+}
+
+.layout {
+    width: 1000px;
+    margin: 0 auto
+}
+
+.content_line {
+    border-top: 1px solid #becad8
+}
+
+.att {
+    font-weight: bold
+}
+
+.layer {
+    border: 3px solid #4F87C7;
+    padding: 0 8px 8px;
+    background: #fff
+}
+
+.layer h3 {
+    border-bottom: 2px solid #386191;
+    padding-bottom: 5px
+}
+
+.div_line_end {
+    clear: both
+}
+
+ul.rolldata>li {
+    display: none
+}
+
+ul.rolldata>li.highlight {
+    display: block
+}
+
+#fastswitch {
+    position: absolute;
+    width: 129px;
+    left: 130px;
+    z-index: 1000;
+    background: url("http://media.slrclub.com/main/2010/fast_bg.gif") repeat-y;
+    text-align: left;
+    line-height: 16px
+}
+
+#fsmain,
+#fsforum,
+#fscommunity,
+#fsmarket,
+#fsgallery,
+#fsinfo {
+    display: none;
+    background: url("http://media.slrclub.com/main/2010/fast_title.gif") no-repeat 0 0
+}
+
+#fastswitch ul {
+    padding: 36px 10px 17px;
+    background: url("http://media.slrclub.com/main/2010/fast_bottom.gif") no-repeat 0 100%
+}
+
+#fastswitch li {
+    background: url("http://media.slrclub.com/main/2010/fast_bulit.gif") no-repeat 0 50%;
+    padding-left: 5px;
+    color: #3E467C;
+    font-size: 11px
+}
+
+#xspinner {
+    position: absolute;
+    visibility: hidden;
+    z-index: 5;
+    top: 0;
+    left: 0
+}
+
+#lookupx {
+    position: absolute;
+    left: 50px;
+    top: 50px;
+    width: 250px;
+    z-index: 4;
+    visibility: hidden
+}
+
+#lookupx #r3plane {
+    background: url("http://media.slrclub.com/sp_delivery/tmimg/r3.jpg")
+}
+
+#lookupx #r4plane {
+    background: url("http://media.slrclub.com/sp_delivery/tmimg/r4.jpg")
+}
+
+#lookupx #headinfo {
+    background: url("http://media.slrclub.com/sp_delivery/tmimg/member_info_img.jpg")
+}
+
+#lookupx .bgplane {
+    background: #FFF
+}
+
+#lookupx .alpha {
+    opacity: 0.3;
+    filter: alpha(opacity=30);
+    font-size: 0;
+    line-height: 0
+}
+
+#lookupx .uline {
+    background: url("http://media.slrclub.com/sp_delivery/tmimg/line.jpg")
+}
+
+#lookupx img {
+    vertical-align: middle
+}
+
+#ajxcss .instyle {
+    border: 1px solid #DADADA;
+    background-color: #FFF
+}
+
+#point {
+    position: absolute;
+    z-index: 200;
+    right: 0;
+    bottom: 37px;
+    height: 60px
+}
+
+.cm_layer {
+    background: #fff;
+    border: 3px solid #4f86c7;
+    padding: 15px 10px
+}
+
+.cm_layer .top {
+    border-bottom: 2px solid #376191;
+    background: url("http://media.slrclub.com/main/2012/common/icon_alert_circle.gif") no-repeat 0 17%;
+    padding-left: 17px;
+    height: 22px;
+    color: #343434
+}
+
+.cm_layer .top dt {
+    float: left;
+    font-weight: bold
+}
+
+.cm_layer .top dd {
+    float: right;
+    cursor: pointer
+}
+
+.cm_layer .btn {
+    margin-top: 25px;
+    text-align: center;
+    cursor: pointer;
+    clear: both
+}
+
+.cm_layer p {
+    color: #444;
+    text-align: center;
+    font-size: 11px;
+    line-height: 15px;
+    margin-top: 25px
+}
+
+.help_info {
+    width: 284px
+}
+
+.help_info h6 {
+    font-size: 11px;
+    margin-top: 8px;
+    color: #444
+}
+
+.help_info p {
+    background: #edeef0;
+    margin-top: 6px;
+    text-align: left;
+    padding: 3px 0 2px 4px
+}
+
+.help_info p span {
+    background: url("http://media.slrclub.com/main/2012/common/icon_help_arrow.gif") no-repeat 0 40%;
+    padding-left: 12px;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 3px
+}
+
+#header {
+    position: relative;
+    *z-index: 1000
+}
+
+#logo {
+    float: left;
+    padding: 30px 0 15px 12px
+}
+
+#logo h1 {
+    height: 47px
+}
+
+#gnb {
+    width: 1000px;
+    height: 36px;
+    margin: 0 auto;
+    clear: both;
+    background-image: url('http://media.slrclub.com/main/2015/gnb/bg_gnb.jpg?1428911161')
+}
+
+@media (-webkit-min-device-pixel-ratio: 2),
+(-o-min-device-pixel-ratio: 3 / 2),
+(min--moz-device-pixel-ratio: 2),
+(min-device-pixel-ratio: 2),
+(min-resolution: 144dppx) {
+    #gnb {
+        background-image: url('http://media.slrclub.com/main/2015/gnb/bg_gnb@2x.jpg?1428911161');
+        background-size: 1000px 36px
+    }
+}
+
+#main-ad {
+    float: right;
+    line-height: 0;
+    font-size: 0;
+    margin-top: 5px;
+    border: 0
+}
+
+#gnb li {
+    float: left;
+    max-height: 36px;
+    *position: relative;
+    cursor: pointer;
+    margin: 0 13px;
+    *z-index: 30
+}
+
+#gnb li.first,
+#gnb li.last {
+    padding: 0;
+    margin: 0
+}
+
+#gnb li.first {
+    margin: 0 8px 0 5px
+}
+
+#gnb .sub {
+    border: 1px solid #519ce0;
+    border-top: none;
+    background-color: #fff;
+    position: absolute;
+    z-index: 30;
+    display: none;
+    top: 128px;
+    top: 129px\9;
+    *top: 36px;
+    *left: 13px;
+    padding: 17px 0;
+    min-width: 110px;
+    margin-left: -1px
+}
+
+#gnb .sub ul {
+    float: left;
+    min-height: 128px;
+    *min-height: 0px;
+    min-width: 118px
+}
+
+#gnb .sub ul+ul {
+    border-left: 1px solid #e5e5e5
+}
+
+#gnb .sub li {
+    float: none;
+    text-align: left;
+    line-height: 26px;
+    padding: 0;
+    border: none;
+    margin: 0
+}
+
+#gnb .sub li a {
+    color: #555;
+    font-weight: bold;
+    display: inline-block;
+    width: 94px;
+    padding: 0 12px 0 18px
+}
+
+#gnb .sub li a:hover {
+    color: #4f87c7;
+    text-decoration: none
+}
+
+#gnb .sub li:hover {
+    background-color: #e6f0fa
+}
+
+#gnb .sub.rsort {
+    right: 0
+}
+
+#gnb .gallery .sub li {
+    width: 108px;
+    padding-left: 10px
+}
+
+#gnbBtmWrap {
+    position: relative;
+    min-height: 22px;
+    padding-top: 8px;
+    background-color: #fff;
+    clear: both;
+    border-bottom: 1px solid #e5e5e5
+}
+
+#gnbBtmWrap .notice {
+    float: left;
+    line-height: 15px;
+    padding-left: 30px
+}
+
+#gnbBtmWrap .notice li {
+    width: 570px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-top: 1px;
+    display: none;
+    line-height: 15px
+}
+
+#gnbBtmWrap .notice li a:hover {
+    text-decoration: none
+}
+
+#gnbBtmWrap .notice li.highlight {
+    display: block !important
+}
+
+#gnbBtmWrap .rolling {
+    top: 8px
+}
+
+#gnbBtmWrap .con_mem {
+    position: absolute;
+    right: 10px;
+    top: 20%
+}
+
+#gnbBtmWrap .tt {
+    color: #999;
+    font-weight: bold;
+    margin-right: 8px
+}
+
+#gnbBtmWrap .mem {
+    margin-right: 8px
+}
+
+#gnbBtmWrap .no_mem {
+    margin-left: 8px
+}
+
+#gnbBtmWrap #login_area {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 28px
+}
+
+#gnbBtmWrap #login_area a {
+    margin: 0;
+    padding: 0;
+    display: inline-block
+}
+
+#gnbBtmWrap #login_area img {
+    cursor: pointer
+}
+
+#gnbBtmWrap #login_area span {
+    line-height: 30px;
+    vertical-align: top;
+    display: inline-block
+}
+
+#gnbBtmWrap #login_area span a {
+    color: #333;
+    font-weight: bold
+}
+
+#gnbBtmWrap #login_area .xbutton a,
+#gnbBtmWrap #login_area .prelog_btn a {
+    font-size: 11px;
+    color: #777;
+    font-weight: normal
+}
+
+#gnbBtmWrap #login_area .tm_flag {
+    margin: 0 5px;
+    color: #999;
+    font-weight: normal
+}
+
+#gnbBtmWrap #login_area span.xmemo {
+    line-height: 32px;
+    float: left
+}
+
+#gnbBtmWrap #login_area span.xmemo img {
+    vertical-align: top;
+    padding-top: 4px;
+    cursor: pointer
+}
+
+#gnbBtmWrap #login_area span.xname {
+    margin-left: 5px
+}
+
+#gnbBtmWrap #login_area span.xname .user_info {
+    color: #676767;
+    margin-left: 5px
+}
+
+#gnbBtmWrap #login_area span.xname .user_info,
+#gnbBtmWrap #login_area span.xname .user_info span {
+    *display: inline;
+    *vertical-align: middle;
+    *line-height: 18px
+}
+
+#login_area span.xname .user_info span {
+    color: #2e9800
+}
+
+#login_area span.xbutton {
+    margin-left: 10px
+}
+
+#gnbBtmWrap #dlogin {
+    position: absolute;
+    right: 262px;
+    top: -50px;
+    *top: -48px;
+    z-index: 300;
+    background: #ecf1f5
+}
+
+#gnbBtmWrap #dlogin #login-input {
+    padding-top: 10px
+}
+
+#gnbBtmWrap #dlogin #login-input #login-process input {
+    right: 20px;
+    width: 80px;
+    height: 56px
+}
+
+#gnbBtmWrap #dlogin #login-input #id-pw input {
+    width: 128px
+}
+
+#wide {
+    left: 0;
+    *line-height: 14px;
+    *padding-top: 7px;
+    cursor: pointer
+}
+
+.gb {
+    background: url('http://media.slrclub.com/main/2015/gnb/normal-s731267b38a.png');
+    display: inline-block
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (min--moz-device-pixel-ratio: 2),
+only screen and (-o-min-device-pixel-ratio: 2 / 1),
+only screen and (min-device-pixel-ratio: 2),
+only screen and (min-resolution: 192dpi),
+only screen and (min-resolution: 2dppx) {
+    .gb {
+        background: url('http://media.slrclub.com/main/2015/gnb/retina-sf86eb78440.png');
+        -moz-background-size: 147px 1207px;
+        -o-background-size: 147px 1207px;
+        -webkit-background-size: 147px 1207px;
+        background-size: 147px 1207px
+    }
+}
+
+.gb.bt_gnb_arrow {
+    background-position: 0 0;
+    height: 8px;
+    width: 11px
+}
+
+.gb.bt_gnb_srch {
+    background-position: 0 -18px;
+    height: 47px;
+    width: 47px
+}
+
+.gb.community {
+    background-position: 0 -75px;
+    height: 36px;
+    width: 138px
+}
+
+.gb.community.on {
+    background-position: 0 -121px
+}
+
+.gb.community.highlight {
+    background-position: 0 -167px
+}
+
+.gb.event {
+    background-position: 0 -213px;
+    height: 36px;
+    width: 102px
+}
+
+.gb.event.on {
+    background-position: 0 -259px
+}
+
+.gb.event.highlight {
+    background-position: 0 -305px
+}
+
+.gb.forum {
+    background-position: 0 -351px;
+    height: 36px;
+    width: 114px
+}
+
+.gb.forum.on {
+    background-position: 0 -397px
+}
+
+.gb.forum.highlight {
+    background-position: 0 -443px
+}
+
+.gb.gallery {
+    background-position: 0 -489px;
+    height: 36px;
+    width: 118px
+}
+
+.gb.gallery.on {
+    background-position: 0 -535px
+}
+
+.gb.gallery.highlight {
+    background-position: 0 -581px
+}
+
+.gb.information {
+    background-position: 0 -627px;
+    height: 36px;
+    width: 147px
+}
+
+.gb.information.on {
+    background-position: 0 -673px
+}
+
+.gb.information.highlight {
+    background-position: 0 -719px
+}
+
+.gb.market {
+    background-position: 0 -765px;
+    height: 36px;
+    width: 115px
+}
+
+.gb.market.on {
+    background-position: 0 -811px
+}
+
+.gb.market.highlight {
+    background-position: 0 -857px
+}
+
+.gb.openfo {
+    background-position: 0 -903px;
+    height: 36px;
+    width: 144px
+}
+
+.gb.openfo.on {
+    background-position: 0 -949px
+}
+
+.gb.openfo.highlight {
+    background-position: 0 -995px
+}
+
+.gb.slrmall {
+    background-position: 0 -1041px;
+    height: 36px;
+    width: 118px
+}
+
+.gb.slrmall.on {
+    background-position: 0 -1087px
+}
+
+.gb.slrmall.highlight {
+    background-position: 0 -1133px
+}
+
+.gb.wide {
+    background-position: 0 -1179px;
+    height: 9px;
+    width: 55px
+}
+
+.gb.wide.off {
+    background-position: 0 -1198px
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (min--moz-device-pixel-ratio: 2),
+only screen and (-o-min-device-pixel-ratio: 2 / 1),
+only screen and (min-device-pixel-ratio: 2),
+only screen and (min-resolution: 192dpi),
+only screen and (min-resolution: 2dppx) {
+    .gb.bt_gnb_arrow {
+        background-position: 0 0
+    }
+
+    .gb.bt_gnb_srch {
+        background-position: 0 -18px
+    }
+
+    .gb.community {
+        background-position: 0 -75px
+    }
+
+    .gb.community.on {
+        background-position: 0 -121px
+    }
+
+    .gb.community.highlight {
+        background-position: 0 -167px
+    }
+
+    .gb.event {
+        background-position: 0 -213px
+    }
+
+    .gb.event.on {
+        background-position: 0 -259px
+    }
+
+    .gb.event.highlight {
+        background-position: 0 -305px
+    }
+
+    .gb.forum {
+        background-position: 0 -351px
+    }
+
+    .gb.forum.on {
+        background-position: 0 -397px
+    }
+
+    .gb.forum.highlight {
+        background-position: 0 -443px
+    }
+
+    .gb.gallery {
+        background-position: 0 -489px
+    }
+
+    .gb.gallery.on {
+        background-position: 0 -535px
+    }
+
+    .gb.gallery.highlight {
+        background-position: 0 -581px
+    }
+
+    .gb.information {
+        background-position: 0 -627px
+    }
+
+    .gb.information.on {
+        background-position: 0 -673px
+    }
+
+    .gb.information.highlight {
+        background-position: 0 -719px
+    }
+
+    .gb.market {
+        background-position: 0 -765px
+    }
+
+    .gb.market.on {
+        background-position: 0 -811px
+    }
+
+    .gb.market.highlight {
+        background-position: 0 -857px
+    }
+
+    .gb.openfo {
+        background-position: 0 -903px
+    }
+
+    .gb.openfo.on {
+        background-position: 0 -949px
+    }
+
+    .gb.openfo.highlight {
+        background-position: 0 -995px
+    }
+
+    .gb.slrmall {
+        background-position: 0 -1041px
+    }
+
+    .gb.slrmall.on {
+        background-position: 0 -1087px
+    }
+
+    .gb.slrmall.highlight {
+        background-position: 0 -1133px
+    }
+
+    .gb.wide {
+        background-position: 0 -1179px
+    }
+
+    .gb.wide.off {
+        background-position: 0 -1198px
+    }
+}
+
+#searchWrap {
+    float: left;
+    padding: 30px 0 0 20px;
+    position: relative;
+    *z-index: 50
+}
+
+#searchWrap .search {
+    overflow: hidden;
+    position: relative
+}
+
+#searchWrap .search .inwrap {
+    width: 260px;
+    background-color: #fff;
+    border: 3px solid #519ce0;
+    display: inline-block
+}
+
+#searchWrap .search input.keyword {
+    float: left;
+    width: 200px;
+    padding: 2px 10px 2px 18px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #333;
+    border: none;
+    height: 37px;
+    outline: none
+}
+
+#searchWrap .search input.submit {
+    margin-left: -4px;
+    *margin-left: -8px;
+    vertical-align: top
+}
+
+#searchWrap button {
+    border: none;
+    cursor: pointer;
+    vertical-align: top
+}
+
+#searchWrap .search .bt_gnb_srch {
+    padding: 0;
+    margin-left: -4px
+}
+
+#autoKwd {
+    position: absolute;
+    top: 0;
+    right: 50px
+}
+
+#autoKwd button {
+    margin: 20px 20px 10px 0;
+    display: inline-block;
+    outline: none;
+    *margin-top: 21px
+}
+
+#top_popkwd {
+    position: absolute;
+    left: 22px;
+    top: 74px;
+    border: 1px solid #519ce0;
+    background-color: #fff;
+    display: none;
+    z-index: 100;
+    color: #333
+}
+
+#top_popkwd h3 {
+    text-align: center;
+    margin-top: 15px
+}
+
+#top_popkwd ol {
+    width: 260px;
+    margin-top: 10px
+}
+
+#top_popkwd li {
+    padding: 8px 20px;
+    border-top: 1px solid #e5e5e5
+}
+
+#top_popkwd li:hover {
+    background-color: #e6f0fa
+}
+
+#top_popkwd li.first {
+    border: none
+}
+
+#top_popkwd li a {
+    color: #333;
+    width: 190px;
+    display: inline-block;
+    margin-left: 13px
+}
+
+#top_popkwd li a:hover {
+    color: #4f87c7;
+    font-weight: bold;
+    text-decoration: underline
+}
+
+#top_popkwd li span {
+    font-weight: bold
+}
+
+#top_popkwd .up {
+    color: #ff6600
+}
+
+#top_popkwd .down {
+    color: #4f87c7
+}
+
+#login {
+    height: 74px;
+    text-align: left;
+    background: #ecf1f5;
+    position: relative;
+    z-index: 100;
+    margin-top: 5px;
+    *margin-top: 10px
+}
+
+#login img {
+    vertical-align: middle
+}
+
+#login .show {
+    display: block
+}
+
+#login-input {
+    overflow: hidden;
+    height: 56px
+}
+
+#id-pw {
+    float: left;
+    margin-right: 2px
+}
+
+#id-pw * {
+    vertical-align: top
+}
+
+#id-pw input {
+    display: block;
+    width: 120px;
+    border: 1px solid #e5e5e5;
+    height: 17px;
+    *height: 15px;
+    padding: 4px 0
+}
+
+#id-pw input.password {
+    margin-top: 2px
+}
+
+#login-process {
+    float: left
+}
+
+#login-process .setting {
+    position: absolute;
+    top: 8px;
+    right: 18px
+}
+
+#login-process input {
+    position: absolute;
+    right: 6px
+}
+
+#login-service {
+    clear: both;
+    white-space: nowrap;
+    overflow: hidden;
+    margin: 0 6px
+}
+
+#login-service .verification {
+    background: url("http://media.slrclub.com/main/2012/main/icon_login_bar.gif") no-repeat 3% 50%;
+    padding-left: 10px
+}
+
+#login-service .registration a {
+    font-weight: bold
+}
+
+#login-service .setting {
+    cursor: pointer
+}
+
+#twin-ip,
+#login-setting {
+    display: none;
+    width: 216px;
+    position: absolute;
+    top: 75px;
+    left: 0;
+    z-index: 99;
+    border: 3px solid #519ce0;
+    font-size: 11px;
+    background: #fff;
+    padding: 18px 20px 18px
+}
+
+#twin-ip h3,
+#login-setting h3 {
+    padding-bottom: 8px;
+    margin: 0;
+    border: 0;
+    height: auto;
+    font-weight: bold;
+    color: #353535;
+    border-bottom: 2px solid #a6c3e3
+}
+
+#twin-ip .close,
+#login-setting .close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 100
+}
+
+#twin-ip .setting,
+#login-setting .setting {
+    color: #49518d;
+    padding-top: 10px
+}
+
+#login-setting .setting .login-help {
+    padding-right: 30px;
+    *padding-right: 25px
+}
+
+#login-setting .setting .login-help a {
+    text-decoration: underline
+}
+
+#login-setting .setting .login-help span,
+#login-setting .setting .login-help a {
+    color: #999
+}
+
+#notice_alert {
+    width: 284px
+}
+
+#footer {
+    clear: both;
+    margin: 18px auto 60px;
+    padding-top: 18px;
+    width: 1000px;
+    overflow: hidden;
+    zoom: 1;
+    border-top: 2px solid #e5e5e5;
+    padding-top: 10px
+}
+
+#copy {
+    float: left;
+    color: #aaa
+}
+
+#copy .sitename {
+    color: #4f87c7;
+    font-weight: bold
+}
+
+#footer .info {
+    float: right;
+    text-align: right;
+    font-size: 11px
+}
+
+#footer .info li {
+    display: inline;
+    background: url("http://media.slrclub.com/main/2012/common/footer_bar.gif") no-repeat 0 30%;
+    padding-left: 19px
+}
+
+#footer .info li.first {
+    background: none
+}
+
+#footer .info a {
+    font-size: 11px;
+    letter-spacing: -1px
+}
+
+#footer .info a:hover {
+    text-decoration: none
+}
+
+#footer .highlight {
+    font-weight: bold
+}
+
+body.sub #footer {
+    border: 0
+}
+
+.notice li a {
+    color: #777;
+    font-weight: bold;
+    padding-left: 15px;
+    *height: 20px;
+    *padding-top: 7px
+}
+
+.notice li span {
+    font-family: Myriad Pro;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 0px
+}
+
+.note1 {
+    color: #003366
+}
+
+.note2 {
+    color: #327296
+}
+
+.note3 {
+    color: #336666
+}
+
+.note4 {
+    color: #993333
+}
+
+.note5 {
+    color: #ff0000
+}
