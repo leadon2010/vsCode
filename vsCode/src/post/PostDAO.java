@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import common.DAO;
+import common.DbCon;
 
 public class PostDAO {
 	private Connection conn = null;
@@ -24,7 +25,7 @@ public class PostDAO {
 	}
 
 	public List<PopularPost> getPostTop3() {
-		conn = DAO.getConnection();
+		conn = DbCon.connect();
 		String sql = "select * from (select * from popular_post order by post_cnt desc) where rownum <= 3";
 		List<PopularPost> list = new ArrayList<>();
 		try {
@@ -44,7 +45,7 @@ public class PostDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			DAO.disconnect();
+			DbCon.disconnect();
 		}
 		return list;
 
