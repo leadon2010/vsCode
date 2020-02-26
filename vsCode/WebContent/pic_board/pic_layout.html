@@ -31,8 +31,7 @@
         <div class="leftcolumn">
             <ul id="gal_list" class="list">
                 <li>
-                    ::marker
-                    <a href=""><img class="rt" src="http://media.slrclub.com/2002/25/t/58816277.jpg" alt="" width="235" height="235"></a>
+                    <a href=""><img class="rt" src="../images/img1.jpg" alt="" width="235" height="235"></a>
                     <div class="title">
                         <span class="sbj">
                             <a href="">등대</a>
@@ -42,8 +41,7 @@
                     </div>
                 </li>
                 <li>
-                    ::marker
-                    <a href=""><img class="rt" src="http://media.slrclub.com/2002/25/t/58816277.jpg" alt="" width="235" height="235"></a>
+                    <a href=""><img class="rt" src="../images/img2.jpg" alt="" width="235" height="235"></a>
                     <div class="title">
                         <span class="sbj">
                             <a href="">등대</a>
@@ -53,8 +51,7 @@
                     </div>
                 </li>
                 <li>
-                    ::marker
-                    <a href=""><img class="rt" src="http://media.slrclub.com/2002/25/t/58816277.jpg" alt="" width="235" height="235"></a>
+                    <a href=""><img class="rt" src="../images/img3.jpg" alt="" width="235" height="235"></a>
                     <div class="title">
                         <span class="sbj">
                             <a href="">등대</a>
@@ -64,8 +61,7 @@
                     </div>
                 </li>
                 <li>
-                    ::marker
-                    <a href=""><img class="rt" src="http://media.slrclub.com/2002/25/t/58816277.jpg" alt="" width="235" height="235"></a>
+                    <a href=""><img class="rt" src="../images/img4.jpg" alt="" width="235" height="235"></a>
                     <div class="title">
                         <span class="sbj">
                             <a href="">등대</a>
@@ -75,8 +71,7 @@
                     </div>
                 </li>
                 <li>
-                    ::marker
-                    <a href=""><img class="rt" src="http://media.slrclub.com/2002/25/t/58816277.jpg" alt="" width="235" height="235"></a>
+                    <a href=""><img class="rt" src="../images/img5.jpg" alt="" width="235" height="235"></a>
                     <div class="title">
                         <span class="sbj">
                             <a href="">등대</a>
@@ -86,8 +81,7 @@
                     </div>
                 </li>
                 <li>
-                    ::marker
-                    <a href=""><img class="rt" src="http://media.slrclub.com/2002/25/t/58816277.jpg" alt="" width="235" height="235"></a>
+                    <a href=""><img class="rt" src="../images/img6.jpg" alt="" width="235" height="235"></a>
                     <div class="title">
                         <span class="sbj">
                             <a href="">등대</a>
@@ -97,8 +91,7 @@
                     </div>
                 </li>
                 <li>
-                    ::marker
-                    <a href=""><img class="rt" src="http://media.slrclub.com/2002/25/t/58816277.jpg" alt="" width="235" height="235"></a>
+                    <a href=""><img class="rt" src="../images/img7.jpg" alt="" width="235" height="235"></a>
                     <div class="title">
                         <span class="sbj">
                             <a href="">등대</a>
@@ -141,16 +134,21 @@
         <h2>Footer</h2>
     </div>
     <script>
-        var xhtp = new XMLHttpRequest();
-        xhtp.onreadystatechange = function () {
-            if (xhtp.readyState == 4 && xhtp.status == 200) {
-                getPopularPost(this);
-            }
-        }
-        xhtp.open("get", "../GetPopularPostServ", true);
-        xhtp.send();
-
         var contents = document.getElementById("contents");
+        popular_post();
+
+        function popular_post() {
+
+            var xhtp = new XMLHttpRequest();
+            xhtp.onreadystatechange = function () {
+                if (xhtp.readyState == 4 && xhtp.status == 200) {
+                    getPopularPost(this);
+                }
+            }
+            xhtp.open("get", "../GetPopularPostServ", true);
+            xhtp.send();
+        }
+
 
         function getPopularPost(arg) {
             var result = JSON.parse(arg.response);
