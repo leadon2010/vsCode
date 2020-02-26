@@ -147,7 +147,7 @@
                 getPopularPost(this);
             }
         }
-        xhtp.open("get", "GetPopularPostServ", true);
+        xhtp.open("get", "../GetPopularPostServ", true);
         xhtp.send();
 
         var contents = document.getElementById("contents");
@@ -158,7 +158,7 @@
             var $img, $p, $div;
             for (x of result) {
                 $img = document.createElement("img");
-                $img.setAttribute("src", "./" + x.postImage);
+                $img.setAttribute("src", "../" + x.postImage);
                 $img.setAttribute("style", "width:100%; height:100%;");
                 $p = document.createElement("p");
                 $p.appendChild($img);
