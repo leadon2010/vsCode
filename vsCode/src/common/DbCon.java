@@ -18,7 +18,7 @@ public class DbCon {
 	static String user = "lch";
 	static String passwd = "lch";
 
-	static String jdbc_url = "jdbc:oracle:thin:@localhost:1521:orcl";
+	static String jdbc_url = "jdbc:oracle:thin:@localhost:1521:xe";
 //	static String jdbc_url = "jdbc:oracle:thin:@192.168.0.17:1521:orcl";
 
 	/* MySQL 연결정보 */
