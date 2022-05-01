@@ -40,7 +40,7 @@ public class SelectService extends HttpServlet {
 		try {
 			ArrayList<FileVO> list = dao.selectAll();
 
-			if (list != null) {
+			if (!list.isEmpty()) {
 				request.setAttribute("list", list);
 
 			} else {
